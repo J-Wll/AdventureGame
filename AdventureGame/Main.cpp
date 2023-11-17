@@ -1,6 +1,9 @@
 #include <iostream>
 #include <list>
 #include "Monster.h"
+#include "Location.h"
+#include "Item.h"
+
 using namespace std;
 
 int main() {
@@ -19,7 +22,7 @@ int main() {
       Monster("Kraken", "Water"),
       Monster("Salamander", "Fire"),
       Monster("Snowman", "Ice"),
-      Monster("Treant", "Earth")
+      Monster("Ent", "Earth")
 	};
 
 	for (Monster i : monsterList) {
