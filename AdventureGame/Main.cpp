@@ -1,49 +1,25 @@
 #include <iostream>
 #include <list>
+#include "Monster.h"
 using namespace std;
-
-class Monster
-{
-	string name;
-	string type;
-public:
-	Monster(string iname, string itype);
-	void info();
-	void setName(string in);
-	string getName();
-	void setType(string in);
-	string getType();
-};
-
-Monster::Monster(string iname, string itype) {
-	name = iname;
-	type = itype;
-}
-
-void Monster::setName(string in) {
-	name = in;
-}
-
-string Monster::getName() {
-	return name;
-}
-
-void Monster::setType(string in) {
-	type = in;
-}
-
-string Monster::getType() {
-	return type;
-}
-
-void Monster::info() {
-	cout << "This monsters name is: " << name << "\nIts type is: " << type << "\n --- \n";
-}
 
 int main() {
 	list<Monster> monsterList = {
-		Monster("Wolf", "Nature"),
-		Monster("Shark", "Water")
+      Monster("Wolf", "Neutral"),
+      Monster("Shark", "Water"),
+      Monster("Dragon", "Fire"),
+      Monster("Yeti", "Ice"),
+      Monster("Golem", "Earth"),
+      Monster("Goblin", "Neutral"),
+      Monster("Mermaid", "Water"),
+      Monster("Phoenix", "Fire"),
+      Monster("Ice Elemental", "Ice"),
+      Monster("Rock Elemental", "Earth"),
+      Monster("Centaur", "Neutral"),
+      Monster("Kraken", "Water"),
+      Monster("Salamander", "Fire"),
+      Monster("Snowman", "Ice"),
+      Monster("Treant", "Earth")
 	};
 
 	for (Monster i : monsterList) {
