@@ -1,5 +1,9 @@
 #include <iostream>
+// not currently using list
 #include <list>
+#include <vector>
+#include <cstdlib>
+#include <ctime>
 
 #include "Monster.h"
 // player and location in PartyAndItems.h
@@ -10,9 +14,7 @@
 using namespace std;
 
 int main() {
-    Player* player = new Player("Bob");
-    cout << "A " << player->getName() << "\n";
-	list<Monster> monsterList = {
+	vector<Monster> monsterList = {
       Monster("Wolf", "Neutral"),
       Monster("Shark", "Water"),
       Monster("Dragon", "Fire"),
@@ -33,10 +35,14 @@ int main() {
       Monster("Mountain Troll", "Earth"),
 	};
 
+    /*
 	for (Monster i : monsterList) {
 		i.info();
-		// cout << "Monster name: " << i.getName()<< "\nMonster type: " << i.getType() << "\n";
 	}
+    */
+
+    Player* player = new Player("Bob");
+    player->chooseMonsters(monsterList);
 }
 
 

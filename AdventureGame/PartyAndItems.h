@@ -20,6 +20,7 @@ public:
 
 // always 3 monsters 1 item, limited lifespan?
 class Location : public PartyAndItems {
+private:
 	using PartyAndItems::PartyAndItems;
 public:
 
@@ -27,11 +28,30 @@ public:
 
 // 3 monsters, up to 9 items, lasts the whole game
 class Player : public PartyAndItems {
+private:
 	using PartyAndItems::PartyAndItems;
+	vector<Monster> playerMonsters = {};
 public:
+	void chooseMonsters(vector<Monster> monsterlist);
 	
 
 
 };
 
+void Player::chooseMonsters(vector<Monster> monsterList) {
+	srand(time(NULL));
+	int listSize = monsterList.size();
+
+	for (int i = 0; i < 3; i++) {
+		int randomInt = rand() % listSize;
+		Monster randomMon = monsterList[randomInt];
+		playerMonsters.push_back(randomMon);
+	}
+
+	cout << "Players party: \n";
+	for (Monster mon : playerMonsters) {
+		mon.info();
+	}
+	
+};
 

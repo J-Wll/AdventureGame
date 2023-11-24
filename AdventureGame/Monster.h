@@ -27,6 +27,8 @@ public:
 
 	void setType(string in) { type = in; };
 	string getType(){ return type; };
+
+	void setEquipment(){}
 };
 
 Monster::Monster(string iname, string itype, int ihp = 50, int iatk = 50, int ispd = 50) {
@@ -39,5 +41,5 @@ Monster::Monster(string iname, string itype, int ihp = 50, int iatk = 50, int is
 
 
 void Monster::info() {
-	cout << "This monsters name is: " << name << "\nIts type is: " << type << "\nIts stats are: HP: " << hp << " ATK: " << atk << " SPD: " << spd << "\n---\n";
+	cout << "Monsters name: " << name << "\nType: " << type << "\nStats: HP: " << hp << " ATK: " << atk << " SPD: " << spd << "\n" << "Equipped: " << equipped << "\n---\n";
 }
