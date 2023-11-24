@@ -29,6 +29,11 @@ public:
 	string getType(){ return type; };
 
 	void setEquipment(){}
+
+	// comparison operator for use with .find(), returns true/false depending on the name of the monster you are comparing against
+	bool operator==(const Monster& compare) {
+		return (name == compare.name);
+	}
 };
 
 Monster::Monster(string iname, string itype, int ihp = 50, int iatk = 50, int ispd = 50) {

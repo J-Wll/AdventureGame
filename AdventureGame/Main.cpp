@@ -4,6 +4,7 @@
 #include <vector>
 #include <cstdlib>
 #include <ctime>
+#include <algorithm>
 
 #include "Monster.h"
 // player and location in PartyAndItems.h

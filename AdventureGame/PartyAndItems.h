@@ -42,10 +42,19 @@ void Player::chooseMonsters(vector<Monster> monsterList) {
 	srand(time(NULL));
 	int listSize = monsterList.size();
 
-	for (int i = 0; i < 3; i++) {
+	for (int i = 0; i < 5; i++) {
 		int randomInt = rand() % listSize;
 		Monster randomMon = monsterList[randomInt];
+
+		if (!playerMonsters.empty()) {
+			if (find(playerMonsters.begin(), playerMonsters.end(), randomMon) != playerMonsters.end()) {
+				//cout << "DUPLICATE";
+				i--;
+				continue;
+			}
+		}
 		playerMonsters.push_back(randomMon);
+
 	}
 
 	cout << "Players party: \n";
