@@ -1,7 +1,9 @@
 #include <iostream>
 #include <list>
+
 #include "Monster.h"
-#include "Location.h"
+#include "PartyAndItems.h"
+#include "Tower.h"
 #include "Item.h"
 
 using namespace std;
@@ -11,18 +13,21 @@ int main() {
       Monster("Wolf", "Neutral"),
       Monster("Shark", "Water"),
       Monster("Dragon", "Fire"),
-      Monster("Yeti", "Ice"),
       Monster("Golem", "Earth"),
       Monster("Goblin", "Neutral"),
       Monster("Mermaid", "Water"),
       Monster("Phoenix", "Fire"),
-      Monster("Ice Elemental", "Ice"),
       Monster("Rock Elemental", "Earth"),
       Monster("Centaur", "Neutral"),
       Monster("Kraken", "Water"),
       Monster("Salamander", "Fire"),
-      Monster("Snowman", "Ice"),
-      Monster("Ent", "Earth")
+      Monster("Ent", "Earth"),
+      Monster("Lava Serpent", "Fire"),
+      Monster("Sand Golem", "Earth"),
+      Monster("Dryad", "Neutral"),
+      Monster("Leviathan", "Water"),
+      Monster("Fire Sprite", "Fire"),
+      Monster("Mountain Troll", "Earth"),
 	};
 
 	for (Monster i : monsterList) {
@@ -30,3 +35,11 @@ int main() {
 		// cout << "Monster name: " << i.getName()<< "\nMonster type: " << i.getType() << "\n";
 	}
 }
+
+
+/*
+Monster("Snowman", "Ice"),
+Monster("Yeti", "Ice"),
+Monster("Ice Elemental", "Ice"),
+
+*/

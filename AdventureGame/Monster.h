@@ -3,6 +3,10 @@
 #include <list>
 using namespace std;
 
+// monster class used for player and enemies, has type, attack, def, speed
+// moves based on type?
+// player picks their party at the start?
+// party size of 3?
 class Monster
 {
 	string name;

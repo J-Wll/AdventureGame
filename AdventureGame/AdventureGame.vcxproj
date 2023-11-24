@@ -131,8 +131,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Item.h" />
-    <ClInclude Include="Location.h" />
-    <ClInclude Include="Map.h" />
+    <ClInclude Include="PartyAndItems.h" />
+    <ClInclude Include="Tower.h" />
     <ClInclude Include="Monster.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
