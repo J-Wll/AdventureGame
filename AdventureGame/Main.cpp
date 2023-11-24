@@ -2,6 +2,7 @@
 #include <list>
 
 #include "Monster.h"
+// player and location in PartyAndItems.h
 #include "PartyAndItems.h"
 #include "Tower.h"
 #include "Item.h"
@@ -9,11 +10,13 @@
 using namespace std;
 
 int main() {
+    Player* player = new Player("Bob");
+    cout << "A " << player->getName() << "\n";
 	list<Monster> monsterList = {
       Monster("Wolf", "Neutral"),
       Monster("Shark", "Water"),
       Monster("Dragon", "Fire"),
-      Monster("Golem", "Earth"),
+      Monster("Golem", "Earth", 80, 50, 20),
       Monster("Goblin", "Neutral"),
       Monster("Mermaid", "Water"),
       Monster("Phoenix", "Fire"),

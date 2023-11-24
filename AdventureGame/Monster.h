@@ -1,6 +1,5 @@
 #pragma once
-#include <iostream>
-#include <list>
+
 using namespace std;
 
 // monster class used for player and enemies, has type, attack, def, speed
@@ -9,38 +8,36 @@ using namespace std;
 // party size of 3?
 class Monster
 {
+private:
+	// name, type and stats of monster, stats have a maximum of 100 (before equipment)
 	string name;
 	string type;
+	int hp;
+	int atk;
+	int spd;
+	// name of equipment(If any), later this will be passed an equipment pointer that effects stats
+	string equipped = "None";
+
 public:
-	Monster(string iname, string itype);
+	Monster(string iname, string itype, int ihp, int iatk, int ispd);
 	void info();
-	void setName(string in);
-	string getName();
-	void setType(string in);
-	string getType();
+
+	void setName(string in){name = in;};
+	string getName(){ return name; };
+
+	void setType(string in) { type = in; };
+	string getType(){ return type; };
 };
 
-Monster::Monster(string iname, string itype) {
+Monster::Monster(string iname, string itype, int ihp = 50, int iatk = 50, int ispd = 50) {
 	name = iname;
 	type = itype;
+	hp = ihp;
+	atk = iatk;
+	spd = ispd;
 }
 
-void Monster::setName(string in) {
-	name = in;
-}
-
-string Monster::getName() {
-	return name;
-}
-
-void Monster::setType(string in) {
-	type = in;
-}
-
-string Monster::getType() {
-	return type;
-}
 
 void Monster::info() {
-	cout << "This monsters name is: " << name << "\nIts type is: " << type << "\n --- \n";
+	cout << "This monsters name is: " << name << "\nIts type is: " << type << "\nIts stats are: HP: " << hp << " ATK: " << atk << " SPD: " << spd << "\n---\n";
 }
