@@ -44,6 +44,10 @@ int main() {
 
     Player* player = new Player("Bob");
     player->chooseMonsters(monsterList);
+    player->showPlayersParty();
+    Location* church = new Location("Church");
+    church->genMonsters(monsterList);
+    church->showMonsters();
 }
 
 

@@ -4,17 +4,47 @@
 // also a list of items/equipment (objects) 
 // monsters and or equip could be randomly generated/selected from a bigger list
 
+
 class PartyAndItems {
 private:
 	string name;
 public:
-	string getName() {
-		return name;
-	}
 	PartyAndItems(string iname) {
 		name = iname;
 	}
+	string getName() {
+		return name;
+	}
+	void monsterListInfo(vector<Monster> Monlist) {
+		for (Monster mon : Monlist) {
+			mon.info();
+		}
+	}
+	vector<Monster> monsterSubList(vector<Monster> monsterList);
 };
+
+vector<Monster> PartyAndItems::monsterSubList(vector<Monster> monsterList) {
+		srand(time(NULL));
+		vector<Monster> returnList = {};
+		int listSize = monsterList.size();
+
+		// picks a random monster, checks if it is already in the list, if not it adds to the list
+		for (int i = 0; i < 3; i++) {
+			int randomInt = rand() % listSize;
+			Monster randomMon = monsterList[randomInt];
+
+			if (!returnList.empty()) {
+				if (find(returnList.begin(), returnList.end(), randomMon) != returnList.end()) {
+					//cout << "DUPLICATE";
+					i--;
+					continue;
+				}
+			}
+			returnList.push_back(randomMon);
+
+		}
+		return returnList;
+}
 
 
 
@@ -22,8 +52,15 @@ public:
 class Location : public PartyAndItems {
 private:
 	using PartyAndItems::PartyAndItems;
+	vector<Monster> locationMonsters = {};
 public:
-
+	void genMonsters(vector<Monster> monsterList){
+		locationMonsters = monsterSubList(monsterList);
+	}
+	void showMonsters() {
+		cout << "The " << getName() << " Has the following monsters:\n";
+		monsterListInfo(locationMonsters);
+	}
 };
 
 // 3 monsters, up to 9 items, lasts the whole game
@@ -33,34 +70,13 @@ private:
 	vector<Monster> playerMonsters = {};
 public:
 	void chooseMonsters(vector<Monster> monsterlist);
-	
-
-
+	void showPlayersParty() {
+		cout << "Players party: \n";
+		monsterListInfo(playerMonsters);
+	}
 };
 
 void Player::chooseMonsters(vector<Monster> monsterList) {
-	srand(time(NULL));
-	int listSize = monsterList.size();
-
-	for (int i = 0; i < 5; i++) {
-		int randomInt = rand() % listSize;
-		Monster randomMon = monsterList[randomInt];
-
-		if (!playerMonsters.empty()) {
-			if (find(playerMonsters.begin(), playerMonsters.end(), randomMon) != playerMonsters.end()) {
-				//cout << "DUPLICATE";
-				i--;
-				continue;
-			}
-		}
-		playerMonsters.push_back(randomMon);
-
-	}
-
-	cout << "Players party: \n";
-	for (Monster mon : playerMonsters) {
-		mon.info();
-	}
-	
+	playerMonsters = monsterSubList(monsterList);
 };
 
