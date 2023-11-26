@@ -5,6 +5,7 @@
 #include <cstdlib>
 #include <ctime>
 #include <algorithm>
+#include <string>
 
 #include "Monster.h"
 // player and location in PartyAndItems.h
@@ -41,6 +42,8 @@ int main() {
 		i.info();
 	}
     */
+
+    cout << "Welcome to the tower of ???\n" << "In this game you will face 10 rounds of combat as you climb the tower\n"<<"Each sucessfully defeated round will grant you an item or equipment\n"<<"First lets build your team:\n\n";
 
     Player* player = new Player("Bob");
     player->chooseMonsters(monsterList);

@@ -6,6 +6,7 @@ using namespace std;
 // moves based on type?
 // player picks their party at the start?
 // party size of 3?
+// class for attacks with sub classes for each attack?
 class Monster
 {
 private:
@@ -20,8 +21,6 @@ private:
 
 public:
 	Monster(string iname, string itype, int ihp, int iatk, int ispd);
-	void info();
-
 	void setName(string in){name = in;};
 	string getName(){ return name; };
 
@@ -29,6 +28,9 @@ public:
 	string getType(){ return type; };
 
 	void setEquipment(){}
+	void attack();
+
+	void info(string opt);
 
 	// comparison operator for use with .find(), returns true/false depending on the name of the monster you are comparing against
 	bool operator==(const Monster& compare) {
@@ -45,6 +47,6 @@ Monster::Monster(string iname, string itype, int ihp = 50, int iatk = 50, int is
 }
 
 
-void Monster::info() {
-	cout << "Monsters name: " << name << "\nType: " << type << "\nStats: HP: " << hp << " ATK: " << atk << " SPD: " << spd << "\n" << "Equipped: " << equipped << "\n---\n";
+void Monster::info(string opt = "") {
+	cout << opt<<"Monsters name: " << name << "\nType: " << type << "\nStats: HP: " << hp << " ATK: " << atk << " SPD: " << spd << "\n" << "Equipped: " << equipped << "\n---\n";
 }

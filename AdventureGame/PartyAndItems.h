@@ -15,14 +15,19 @@ public:
 	string getName() {
 		return name;
 	}
-	void monsterListInfo(vector<Monster> Monlist) {
-		for (Monster mon : Monlist) {
+	void monsterListInfo(vector<Monster> monlist) {
+		/*for (Monster mon : monlist) {
 			mon.info();
+		}*/
+		int lSize = monlist.size();
+		for (int i = 0; i < lSize; i++) {
+			monlist[i].info((to_string(i+1)+". "));
 		}
 	}
 	vector<Monster> monsterSubList(vector<Monster> monsterList);
 };
 
+// returns a list of 3 unique monsters from the large monster list
 vector<Monster> PartyAndItems::monsterSubList(vector<Monster> monsterList) {
 		srand(time(NULL));
 		vector<Monster> returnList = {};
@@ -35,13 +40,11 @@ vector<Monster> PartyAndItems::monsterSubList(vector<Monster> monsterList) {
 
 			if (!returnList.empty()) {
 				if (find(returnList.begin(), returnList.end(), randomMon) != returnList.end()) {
-					//cout << "DUPLICATE";
 					i--;
 					continue;
 				}
 			}
 			returnList.push_back(randomMon);
-
 		}
 		return returnList;
 }
@@ -68,6 +71,7 @@ class Player : public PartyAndItems {
 private:
 	using PartyAndItems::PartyAndItems;
 	vector<Monster> playerMonsters = {};
+
 public:
 	void chooseMonsters(vector<Monster> monsterlist);
 	void showPlayersParty() {
@@ -77,6 +81,10 @@ public:
 };
 
 void Player::chooseMonsters(vector<Monster> monsterList) {
-	playerMonsters = monsterSubList(monsterList);
+	vector<Monster> tempMonsters = {};
+	cout << "You will be presented with 3 choices, each with 3 options for your party, choose with 1/2/3\n";
+	tempMonsters = monsterSubList(monsterList);
+	monsterListInfo(tempMonsters);
+
 };
 
