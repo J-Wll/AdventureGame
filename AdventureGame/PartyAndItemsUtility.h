@@ -4,17 +4,19 @@
 // also a list of items/equipment (objects) 
 // monsters and or equip could be randomly generated/selected from a bigger list
 
-
-class PartyAndItems {
+// base class for locations and players, both of those classes store a party of monsters and items, this saves a lot of repetition
+class PartyAndItemsUtility {
 private:
 	string name;
 public:
-	PartyAndItems(string iname) {
+	PartyAndItemsUtility(string iname) {
 		name = iname;
 	}
 	string getName() {
 		return name;
 	}
+
+	// calls the .info method on each monster in a passed in monster list, passes the current index to the info function which is display in the terminal
 	void monsterListInfo(vector<Monster> monlist) {
 		/*for (Monster mon : monlist) {
 			mon.info();
@@ -28,7 +30,7 @@ public:
 };
 
 // returns a list of 3 unique monsters from the large monster list
-vector<Monster> PartyAndItems::monsterSubList(vector<Monster> monsterList) {
+vector<Monster> PartyAndItemsUtility::monsterSubList(vector<Monster> monsterList) {
 		srand(time(NULL));
 		vector<Monster> returnList = {};
 		int listSize = monsterList.size();
@@ -38,6 +40,7 @@ vector<Monster> PartyAndItems::monsterSubList(vector<Monster> monsterList) {
 			int randomInt = rand() % listSize;
 			Monster randomMon = monsterList[randomInt];
 
+			// if the return list is not empty, use the find function to determine if the monster is already in the list, if it is, start the loop again
 			if (!returnList.empty()) {
 				if (find(returnList.begin(), returnList.end(), randomMon) != returnList.end()) {
 					i--;
@@ -48,43 +51,3 @@ vector<Monster> PartyAndItems::monsterSubList(vector<Monster> monsterList) {
 		}
 		return returnList;
 }
-
-
-
-// always 3 monsters 1 item, limited lifespan?
-class Location : public PartyAndItems {
-private:
-	using PartyAndItems::PartyAndItems;
-	vector<Monster> locationMonsters = {};
-public:
-	void genMonsters(vector<Monster> monsterList){
-		locationMonsters = monsterSubList(monsterList);
-	}
-	void showMonsters() {
-		cout << "The " << getName() << " Has the following monsters:\n";
-		monsterListInfo(locationMonsters);
-	}
-};
-
-// 3 monsters, up to 9 items, lasts the whole game
-class Player : public PartyAndItems {
-private:
-	using PartyAndItems::PartyAndItems;
-	vector<Monster> playerMonsters = {};
-
-public:
-	void chooseMonsters(vector<Monster> monsterlist);
-	void showPlayersParty() {
-		cout << "Players party: \n";
-		monsterListInfo(playerMonsters);
-	}
-};
-
-void Player::chooseMonsters(vector<Monster> monsterList) {
-	vector<Monster> tempMonsters = {};
-	cout << "You will be presented with 3 choices, each with 3 options for your party, choose with 1/2/3\n";
-	tempMonsters = monsterSubList(monsterList);
-	monsterListInfo(tempMonsters);
-
-};
-

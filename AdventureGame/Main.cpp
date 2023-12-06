@@ -8,8 +8,8 @@
 #include <string>
 
 #include "Monster.h"
-// player and location in PartyAndItems.h
-#include "PartyAndItems.h"
+#include "Location.h"
+#include "Player.h"
 #include "Tower.h"
 #include "Item.h"
 

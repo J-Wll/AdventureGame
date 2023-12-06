@@ -32,7 +32,7 @@ public:
 
 	void info(string opt);
 
-	// comparison operator for use with .find(), returns true/false depending on the name of the monster you are comparing against
+	// comparison operator for use with find(), returns true/false depending on the name of the monster you are comparing against
 	bool operator==(const Monster& compare) {
 		return (name == compare.name);
 	}
