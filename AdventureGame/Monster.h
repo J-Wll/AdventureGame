@@ -15,12 +15,12 @@ private:
 	string type;
 	int hp;
 	int atk;
-	int spd;
+	int def;
 	// name of equipment(If any), later this will be passed an equipment pointer that effects stats
 	string equipped = "None";
 
 public:
-	Monster(string iname, string itype, int ihp, int iatk, int ispd);
+	Monster(string iname, string itype, int ihp, int iatk, int idef);
 	void setName(string in){name = in;};
 	string getName(){ return name; };
 
@@ -38,15 +38,15 @@ public:
 	}
 };
 
-Monster::Monster(string iname, string itype, int ihp = 50, int iatk = 50, int ispd = 50) {
+Monster::Monster(string iname, string itype, int ihp = 50, int iatk = 50, int idef = 50) {
 	name = iname;
 	type = itype;
 	hp = ihp;
 	atk = iatk;
-	spd = ispd;
+	def = idef;
 }
 
 
 void Monster::info(string opt = "") {
-	cout << opt<<"Monsters name: " << name << "\nType: " << type << "\nStats: HP: " << hp << " ATK: " << atk << " SPD: " << spd << "\n" << "Equipped: " << equipped << "\n---\n";
+	cout << "\n---\n" << opt <<"Monsters name: " << name << "\nType: " << type << "\nStats: HP: " << hp << " ATK: " << atk << " DEF: " << def << "\n" << "Equipped: " << equipped ;
 }

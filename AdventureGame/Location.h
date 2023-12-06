@@ -12,7 +12,7 @@ public:
 		locationMonsters = monsterSubList(monsterList);
 	}
 	void showMonsters() {
-		cout << "The " << getName() << " Has the following monsters:\n";
+		cout << "\nThe " << getName() << " Has the following monsters:";
 		monsterListInfo(locationMonsters);
 	}
 };

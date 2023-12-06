@@ -11,7 +11,7 @@ private:
 public:
 	void chooseMonsters(vector<Monster> monsterlist);
 	void showPlayersParty() {
-		cout << "Players party: \n";
+		cout << "\nPlayers party:";
 		monsterListInfo(playerMonsters);
 	}
 };
@@ -20,6 +20,7 @@ void Player::chooseMonsters(vector<Monster> monsterList) {
 	vector<Monster> tempMonsters = {};
 	cout << "You will be presented with 3 choices, each with 3 options for your party, choose with 1/2/3\n";
 	tempMonsters = monsterSubList(monsterList);
-	monsterListInfo(tempMonsters);
+	// monsterListInfo(tempMonsters);
+	playerMonsters = tempMonsters;
 
 };

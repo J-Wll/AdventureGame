@@ -25,6 +25,7 @@ public:
 		for (int i = 0; i < lSize; i++) {
 			monlist[i].info((to_string(i+1)+". "));
 		}
+		cout << "\n---\n";
 	}
 	vector<Monster> monsterSubList(vector<Monster> monsterList);
 };
