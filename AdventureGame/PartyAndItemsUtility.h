@@ -32,12 +32,12 @@ public:
 
 // returns a list of 3 unique monsters from the large monster list
 vector<Monster> PartyAndItemsUtility::monsterSubList(vector<Monster> monsterList) {
-		srand(time(NULL));
 		vector<Monster> returnList = {};
 		int listSize = monsterList.size();
 
 		// picks a random monster, checks if it is already in the list, if not it adds to the list
 		for (int i = 0; i < 3; i++) {
+			// rand is seeded in main to prevent error
 			int randomInt = rand() % listSize;
 			Monster randomMon = monsterList[randomInt];
 

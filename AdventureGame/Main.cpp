@@ -37,20 +37,19 @@ int main() {
       Monster("Mountain Troll", "Earth"),
 	};
 
-    /*
-	for (Monster i : monsterList) {
-		i.info();
-	}
-    */
-
     cout << "Welcome to the tower of ???\n" << "In this game you will face 10 rounds of combat as you climb the tower\n"<<"Each sucessfully defeated round will grant you an item or equipment\n"<<"First lets build your team:\n\n";
 
+    // seeded in main to prevent error
+    srand(time(NULL));
     Player* player = new Player("Bob");
     player->chooseMonsters(monsterList);
     player->showPlayersParty();
     Location* church = new Location("Church");
     church->genMonsters(monsterList);
     church->showMonsters();
+    // cycle of every player monster fighting every location monster (for testing), (final version in a loop with a location var that changes)
+    Location* currentLocation = church;
+    //player->attackCycle(currentLocation);
 }
 
 
