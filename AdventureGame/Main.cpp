@@ -44,12 +44,16 @@ int main() {
     Player* player = new Player("Bob");
     player->chooseMonsters(monsterList);
     player->showPlayersParty();
+
     Location* church = new Location("Church");
-    church->genMonsters(monsterList);
-    church->showMonsters();
-    // cycle of every player monster fighting every location monster (for testing), (final version in a loop with a location var that changes)
     Location* currentLocation = church;
-    //player->attackCycle(currentLocation);
+
+    currentLocation->genMonsters(monsterList);
+    currentLocation->showMonsters();
+
+    // cycle of every player monster fighting every location monster (for testing), (final version in a loop with a location var that changes)
+    player->attackCycle(currentLocation);
+    currentLocation->showMonsters();
 }
 
 

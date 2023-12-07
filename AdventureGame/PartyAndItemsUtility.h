@@ -9,21 +9,25 @@ class PartyAndItemsUtility {
 private:
 	string name;
 public:
+	vector<Monster> monsterParty = {};
 	PartyAndItemsUtility(string iname) {
 		name = iname;
 	}
 	string getName() {
 		return name;
 	}
+	//vector<Monster>& getMonsters() {
+	//	return monsterParty;
+	//}
 
 	// calls the .info method on each monster in a passed in monster list, passes the current index to the info function which is display in the terminal
-	void monsterListInfo(vector<Monster> monlist) {
+	void monsterPartyInfo() {
 		/*for (Monster mon : monlist) {
 			mon.info();
 		}*/
-		int lSize = monlist.size();
+		int lSize = monsterParty.size();
 		for (int i = 0; i < lSize; i++) {
-			monlist[i].info((to_string(i+1)+". "));
+			monsterParty[i].info((to_string(i+1)+". "));
 		}
 		cout << "\n---\n";
 	}

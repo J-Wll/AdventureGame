@@ -2,6 +2,9 @@
 
 using namespace std;
 
+// pre-declaration to allow attack to receive location
+//class Location;
+
 // monster class used for player and enemies, has type, attack, def, speed
 // moves based on type?
 // player picks their party at the start?
@@ -21,6 +24,8 @@ private:
 
 public:
 	Monster(string iname, string itype, int ihp, int iatk, int idef);
+	void info(string opt);
+
 	void setName(string in){name = in;};
 	string getName(){ return name; };
 
@@ -28,10 +33,23 @@ public:
 	string getType(){ return type; };
 
 	void setEquipment(){}
-	void attack();
+	//void attack(Location* currentLocation) {
+	//currentLocation
+	void attack(Location* currentLocation) {
+		cout << currentLocation <<"\n";
+		currentLocation->monsterPartyInfo();
 
-	void info(string opt);
-
+		//currentLocation->getName();
+		//for (Monster mon : currentLocation->monsterParty) {
+		//	mon.takeDamage(atk);
+		//}
+	};
+	void takeDamage(int attackValue) {
+		hp -= (attackValue * def / 100);
+		if (hp < 0) {
+			cout<<"DEAD";
+		}
+	}
 	// comparison operator for use with find(), returns true/false depending on the name of the monster you are comparing against
 	bool operator==(const Monster& compare) {
 		return (name == compare.name);
