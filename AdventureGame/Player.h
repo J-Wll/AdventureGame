@@ -17,7 +17,13 @@ public:
 	}
 	int getTarget(int max = 3) {
 		int min = 1;
-		return 2;
+		int inp;
+		cin >> inp;
+		if (inp > max || inp < min) {
+			cout << "Invalid input, enter again:\n";
+			return getTarget(max);
+		}
+		return inp;
 	};
 };
 
@@ -35,12 +41,18 @@ void Player::attackCycle(Location* currentLocation) {
 	cout << currentLocation << "\n";
 
 	int enemyPartySize = currentLocation->monsterParty.size();
+	int playerPartySize = monsterParty.size();
 
-	int target = getTarget(enemyPartySize);
-	Monster mon = monsterParty[0];
+	cout << "Which of your monsters should attack?";
+	int attacker = getTarget(playerPartySize) - 1;
+	cout << "Choose an enemy to target, (Enter a whole number)";
+	int target = getTarget(enemyPartySize) - 1;
+
+	Monster mon = monsterParty[attacker];
+	Monster* attacking = &currentLocation->monsterParty[target];
 
 	cout << mon.getName() << " Attacks " << currentLocation->monsterParty[0].getName() <<
-		" dealing " << currentLocation->monsterParty[0].takeDamage(mon.getAttack()) << " damage\n";
+		" dealing " << attacking->takeDamage(mon.getAttack()) << " damage\n";
 	//for(Monster mon : monsterParty){
 		
 
