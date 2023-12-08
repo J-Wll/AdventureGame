@@ -59,6 +59,8 @@ using namespace std;
 			return atk+randomDmg;
 		}
 
+		int getHp() {return hp;}
+
 		//void attack(Location* currentLocation) {
 		//	cout << currentLocation <<"\n";
 		//	//currentLocation->monsterPartyInfo();

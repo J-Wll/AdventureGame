@@ -39,20 +39,28 @@ void Player::chooseMonsters(vector<Monster> monsterList) {
 // after combat, takes the item from that location
 void Player::attackCycle(Location* currentLocation) {
 
+	for (int i = 0; i < 3; i++) {
 
-	int enemyPartySize = currentLocation->monsterParty.size();
-	int playerPartySize = monsterParty.size();
+		int enemyPartySize = currentLocation->monsterParty.size();
+		int playerPartySize = monsterParty.size();
 
-	cout << "Which of your monsters should attack?, (Enter a whole number): ";
-	int attacker = getTarget(playerPartySize) - 1;
-	cout << "Choose an enemy to target, (Enter a whole number): ";
-	int target = getTarget(enemyPartySize) - 1;
+		cout << "Which of your monsters should attack?, (Enter a whole number): ";
+		int attacker = getTarget(playerPartySize) - 1;
+		cout << "Choose an enemy to target, (Enter a whole number): ";
+		int target = getTarget(enemyPartySize) - 1;
 
-	Monster* mon = &monsterParty[attacker];
-	Monster* attacking = &currentLocation->monsterParty[target];
+		Monster* mon = &monsterParty[attacker];
+		Monster* attacking = &currentLocation->monsterParty[target];
 
-	cout << "\n" << mon->getName() << " Attacks " << attacking->getName() <<
-		" dealing " << attacking->takeDamage(mon->getAttack()) << " damage\n";
+		cout << "\n" << mon->getName() << " Attacks " << attacking->getName() <<
+			" dealing " << attacking->takeDamage(mon->getAttack()) << " damage\n";
+
+		if (attacking->getHp() <= 0) {
+			currentLocation->monsterParty.erase(currentLocation->monsterParty.begin() + target);
+		}
+		showPlayersParty();
+		currentLocation->showMonsters();
+	}
 
 	//for(Monster mon : monsterParty){
 		
