@@ -30,10 +30,14 @@ void Player::chooseMonsters(vector<Monster> monsterList) {
 void Player::attackCycle(Location* currentLocation) {
 	//vector<Monster> locationMonsters = currentLocation->getMonsters();
 	cout << currentLocation << "\n";
-	currentLocation->monsterPartyInfo();
+	//currentLocation->monsterPartyInfo();
 
-	for(Monster mon : monsterParty){
-		mon.attack(currentLocation);
+	currentLocation->monsterParty[0].takeDamage(23);
+	currentLocation->monsterPartyInfo();
+	//monsterParty[0].attack(currentLocation);
+
+	//for(Monster mon : monsterParty){
 		//mon.attack();
-}
+		//mon.attack(currentLocation);
+//}
 }

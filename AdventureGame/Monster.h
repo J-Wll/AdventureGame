@@ -35,15 +35,16 @@ public:
 	void setEquipment(){}
 	//void attack(Location* currentLocation) {
 	//currentLocation
-	void attack(Location* currentLocation) {
-		cout << currentLocation <<"\n";
-		currentLocation->monsterPartyInfo();
+	void attack();
+	//void attack(Location* currentLocation) {
+		//cout << currentLocation <<"\n";
+		//currentLocation->monsterPartyInfo();
 
 		//currentLocation->getName();
 		//for (Monster mon : currentLocation->monsterParty) {
 		//	mon.takeDamage(atk);
 		//}
-	};
+	//};
 	void takeDamage(int attackValue) {
 		hp -= (attackValue * def / 100);
 		if (hp < 0) {
