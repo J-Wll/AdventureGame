@@ -38,21 +38,22 @@ void Player::chooseMonsters(vector<Monster> monsterList) {
 // takes a location, iterates over the monsters at the location for combat
 // after combat, takes the item from that location
 void Player::attackCycle(Location* currentLocation) {
-	cout << currentLocation << "\n";
+
 
 	int enemyPartySize = currentLocation->monsterParty.size();
 	int playerPartySize = monsterParty.size();
 
-	cout << "Which of your monsters should attack?";
+	cout << "Which of your monsters should attack?: ";
 	int attacker = getTarget(playerPartySize) - 1;
-	cout << "Choose an enemy to target, (Enter a whole number)";
+	cout << "Choose an enemy to target, (Enter a whole number): ";
 	int target = getTarget(enemyPartySize) - 1;
 
-	Monster mon = monsterParty[attacker];
+	Monster* mon = &monsterParty[attacker];
 	Monster* attacking = &currentLocation->monsterParty[target];
 
-	cout << mon.getName() << " Attacks " << currentLocation->monsterParty[0].getName() <<
-		" dealing " << attacking->takeDamage(mon.getAttack()) << " damage\n";
+	cout << mon->getName() << " Attacks " << attacking->getName() <<
+		" dealing " << attacking->takeDamage(mon->getAttack()) << " damage\n";
+
 	//for(Monster mon : monsterParty){
 		
 
