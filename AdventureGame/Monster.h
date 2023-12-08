@@ -55,7 +55,8 @@ using namespace std;
 
 		// later this will ask for and get the move from a move list dependant on type
 		int getAttack() {
-			return atk;
+			int randomDmg = rand() % atk/5;
+			return atk+randomDmg;
 		}
 
 		//void attack(Location* currentLocation) {

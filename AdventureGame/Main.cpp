@@ -20,7 +20,7 @@ int main() {
       Monster("Wolf", "Neutral"),
       Monster("Shark", "Water"),
       Monster("Dragon", "Fire"),
-      Monster("Golem", "Earth", 80, 50, 20),
+      Monster("Golem", "Earth", 80, 20, 50),
       Monster("Goblin", "Neutral"),
       Monster("Mermaid", "Water"),
       Monster("Phoenix", "Fire"),

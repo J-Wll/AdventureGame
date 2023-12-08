@@ -43,7 +43,7 @@ void Player::attackCycle(Location* currentLocation) {
 	int enemyPartySize = currentLocation->monsterParty.size();
 	int playerPartySize = monsterParty.size();
 
-	cout << "Which of your monsters should attack?: ";
+	cout << "Which of your monsters should attack?, (Enter a whole number): ";
 	int attacker = getTarget(playerPartySize) - 1;
 	cout << "Choose an enemy to target, (Enter a whole number): ";
 	int target = getTarget(enemyPartySize) - 1;
@@ -51,7 +51,7 @@ void Player::attackCycle(Location* currentLocation) {
 	Monster* mon = &monsterParty[attacker];
 	Monster* attacking = &currentLocation->monsterParty[target];
 
-	cout << mon->getName() << " Attacks " << attacking->getName() <<
+	cout << "\n" << mon->getName() << " Attacks " << attacking->getName() <<
 		" dealing " << attacking->takeDamage(mon->getAttack()) << " damage\n";
 
 	//for(Monster mon : monsterParty){
