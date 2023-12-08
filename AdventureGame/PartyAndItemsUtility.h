@@ -1,4 +1,12 @@
 #pragma once
+#include <vector>
+#include <cstdlib>
+#include <iostream>
+#include <ctime>
+#include <algorithm>
+#include <string>
+
+#include "Monster.h";
 
 // list of monsters at that location, like 3 per?, dynamic array with monsters being removed/added?
 // also a list of items/equipment (objects) 
@@ -16,9 +24,10 @@ public:
 	string getName() {
 		return name;
 	}
-	//vector<Monster>& getMonsters() {
-	//	return monsterParty;
-	//}
+	vector<Monster>* getMonsters() {
+		vector<Monster>* _monsterParty = &monsterParty;
+		return _monsterParty;
+	}
 
 	// calls the .info method on each monster in a passed in monster list, passes the current index to the info function which is display in the terminal
 	void monsterPartyInfo() {

@@ -1,6 +1,5 @@
+//#include <list>
 #include <iostream>
-// not currently using list
-#include <list>
 #include <vector>
 #include <cstdlib>
 #include <ctime>

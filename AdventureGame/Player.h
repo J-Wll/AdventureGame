@@ -15,6 +15,10 @@ public:
 		cout << "\nPlayers party:";
 		monsterPartyInfo();
 	}
+	int getTarget(int max = 3) {
+		int min = 1;
+		return 2;
+	};
 };
 
 void Player::chooseMonsters(vector<Monster> monsterList) {
@@ -28,16 +32,18 @@ void Player::chooseMonsters(vector<Monster> monsterList) {
 // takes a location, iterates over the monsters at the location for combat
 // after combat, takes the item from that location
 void Player::attackCycle(Location* currentLocation) {
-	//vector<Monster> locationMonsters = currentLocation->getMonsters();
 	cout << currentLocation << "\n";
-	//currentLocation->monsterPartyInfo();
 
-	currentLocation->monsterParty[0].takeDamage(23);
-	currentLocation->monsterPartyInfo();
-	//monsterParty[0].attack(currentLocation);
+	int enemyPartySize = currentLocation->monsterParty.size();
 
+	int target = getTarget(enemyPartySize);
+	Monster mon = monsterParty[0];
+
+	cout << mon.getName() << " Attacks " << currentLocation->monsterParty[0].getName() <<
+		" dealing " << currentLocation->monsterParty[0].takeDamage(mon.getAttack()) << " damage\n";
 	//for(Monster mon : monsterParty){
-		//mon.attack();
-		//mon.attack(currentLocation);
+		
+
 //}
+	currentLocation->monsterPartyInfo();
 }
