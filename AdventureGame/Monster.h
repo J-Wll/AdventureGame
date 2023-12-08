@@ -2,8 +2,13 @@
 
 using namespace std;
 
+//#ifndef LOCATION_H
+//#define LOCATION_H
+//#endif
+
 // pre-declaration to allow attack to receive location
-//class Location;
+// doesn't work because overrides it, even if same memory address
+//class Location {};
 
 // monster class used for player and enemies, has type, attack, def, speed
 // moves based on type?
@@ -36,15 +41,17 @@ public:
 	//void attack(Location* currentLocation) {
 	//currentLocation
 	void attack();
-	//void attack(Location* currentLocation) {
-		//cout << currentLocation <<"\n";
-		//currentLocation->monsterPartyInfo();
 
-		//currentLocation->getName();
-		//for (Monster mon : currentLocation->monsterParty) {
-		//	mon.takeDamage(atk);
-		//}
+	//void attack(Location* currentLocation) {
+	//	cout << currentLocation <<"\n";
+	//	//currentLocation->monsterPartyInfo();
+
+	//	//currentLocation->getName();
+	//	//for (Monster mon : currentLocation->monsterParty) {
+	//	//	mon.takeDamage(atk);
+	//	//}
 	//};
+
 	void takeDamage(int attackValue) {
 		hp -= (attackValue * def / 100);
 		if (hp < 0) {

@@ -16,6 +16,7 @@
 using namespace std;
 
 int main() {
+    Monster testMon = Monster("Default", "Neutral");
 	vector<Monster> monsterList = {
       Monster("Wolf", "Neutral"),
       Monster("Shark", "Water"),
