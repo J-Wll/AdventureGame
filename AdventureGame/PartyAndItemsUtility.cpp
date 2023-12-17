@@ -1,0 +1,59 @@
+#pragma once
+#include <vector>
+#include <cstdlib>
+#include <iostream>
+#include <ctime>
+#include <algorithm>
+#include <string>
+
+#include "PartyAndItemsUtility.h";
+#include "Monster.h";
+using namespace std;
+
+	vector<Monster> monsterParty = {};
+	PartyAndItemsUtility::PartyAndItemsUtility(string iname) {
+		name = iname;
+	}
+	string PartyAndItemsUtility::getName() {
+		return name;
+	}
+	vector<Monster>* PartyAndItemsUtility::getMonsters() {
+		vector<Monster>* _monsterParty = &monsterParty;
+		return _monsterParty;
+	}
+
+	// calls the .info method on each monster in a passed in monster list, passes the current index to the info function which is display in the terminal
+	void PartyAndItemsUtility::monsterPartyInfo() {
+		/*for (Monster mon : monlist) {
+			mon.info();
+		}*/
+		int lSize = monsterParty.size();
+		for (int i = 0; i < lSize; i++) {
+			monsterParty[i].info((to_string(i + 1) + ". "));
+		}
+		cout << "\n---\n";
+	}
+
+
+// returns a list of 3 unique monsters from the large monster list
+vector<Monster> PartyAndItemsUtility::monsterSubList(vector<Monster> monsterList) {
+	vector<Monster> returnList = {};
+	int listSize = monsterList.size();
+
+	// picks a random monster, checks if it is already in the list, if not it adds to the list
+	for (int i = 0; i < 3; i++) {
+		// rand is seeded in main to prevent error
+		int randomInt = rand() % listSize;
+		Monster randomMon = monsterList[randomInt];
+
+		// if the return list is not empty, use the find function to determine if the monster is already in the list, if it is, start the loop again
+		if (!returnList.empty()) {
+			if (find(returnList.begin(), returnList.end(), randomMon) != returnList.end()) {
+				i--;
+				continue;
+			}
+		}
+		returnList.push_back(randomMon);
+	}
+	return returnList;
+}

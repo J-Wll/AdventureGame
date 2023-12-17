@@ -8,11 +8,6 @@ private:
 	using PartyAndItemsUtility::PartyAndItemsUtility;
 	//vector<Monster> locationMonsters = {};
 public:
-	void genMonsters(vector<Monster> monsterList) {
-		monsterParty = monsterSubList(monsterList);
-	}
-	void showMonsters() {
-		cout << "\nThe " << getName() << " Has the following monsters:";
-		monsterPartyInfo();
-	}
+	void genMonsters(vector<Monster> monsterList);
+	void showMonsters();
 };

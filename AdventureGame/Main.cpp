@@ -26,7 +26,7 @@ int main() {
         Monster("Mermaid", "Water", 50, 40, 60),
         Monster("Phoenix", "Fire", 50, 60, 40),
         Monster("Rock Elemental", "Earth", 70, 20, 60),
-        Monster("Centaur", "Neutral", 50, 60, 40),
+        Monster("Centaur", "Neutral", 50, 50, 50),
         Monster("Kraken", "Water", 60, 50, 40),
         Monster("Salamander", "Fire", 40, 70, 40),
         Monster("Ent", "Earth", 60, 40, 50),
