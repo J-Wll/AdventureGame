@@ -11,6 +11,7 @@
 #include "Player.h"
 #include "Tower.h"
 #include "Item.h"
+#include "AttackCycle.h"
 
 using namespace std;
 
@@ -53,14 +54,7 @@ int main() {
     currentLocation->showMonsters();
 
     // cycle of every player monster fighting every location monster (for testing), (final version in a loop with a location var that changes)
-    player->attackCycle(currentLocation);
+    //player->attackCycle(currentLocation);
+    attackCycle(player, currentLocation);
     currentLocation->showMonsters();
 }
-
-
-/*
-Monster("Snowman", "Ice"),
-Monster("Yeti", "Ice"),
-Monster("Ice Elemental", "Ice"),
-
-*/

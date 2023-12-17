@@ -12,7 +12,6 @@ private:
 
 public:
 	void chooseMonsters(vector<Monster> monsterlist);
-	void attackCycle(Location* currentLocation);
 	void showPlayersParty();
 	int getTarget(int max = 3);
 };
