@@ -15,26 +15,27 @@
 using namespace std;
 
 int main() {
+    Monster monster("a", "b");
     Monster testMon = Monster("Default", "Neutral");
 	vector<Monster> monsterList = {
-      Monster("Wolf", "Neutral"),
-      Monster("Shark", "Water"),
-      Monster("Dragon", "Fire"),
-      Monster("Golem", "Earth", 80, 20, 50),
-      Monster("Goblin", "Neutral"),
-      Monster("Mermaid", "Water"),
-      Monster("Phoenix", "Fire"),
-      Monster("Rock Elemental", "Earth"),
-      Monster("Centaur", "Neutral"),
-      Monster("Kraken", "Water"),
-      Monster("Salamander", "Fire"),
-      Monster("Ent", "Earth"),
-      Monster("Lava Serpent", "Fire"),
-      Monster("Sand Golem", "Earth"),
-      Monster("Dryad", "Neutral"),
-      Monster("Leviathan", "Water"),
-      Monster("Fire Sprite", "Fire"),
-      Monster("Mountain Troll", "Earth"),
+        Monster("Wolf", "Neutral", 40, 70, 40),
+        Monster("Shark", "Water", 50, 60, 40),
+        Monster("Dragon", "Fire", 60, 70, 20),
+        Monster("Golem", "Earth", 80, 20, 50),
+        Monster("Goblin", "Neutral", 30, 70, 50),
+        Monster("Mermaid", "Water", 50, 40, 60),
+        Monster("Phoenix", "Fire", 50, 60, 40),
+        Monster("Rock Elemental", "Earth", 70, 20, 60),
+        Monster("Centaur", "Neutral", 50, 60, 40),
+        Monster("Kraken", "Water", 60, 50, 40),
+        Monster("Salamander", "Fire", 40, 70, 40),
+        Monster("Ent", "Earth", 60, 40, 50),
+        Monster("Lava Serpent", "Fire", 40, 70, 40),
+        Monster("Sand Golem", "Earth", 60, 30, 60),
+        Monster("Dryad", "Neutral", 40, 60, 50),
+        Monster("Leviathan", "Water", 70, 40, 40),
+        Monster("Fire Sprite", "Fire", 30, 70, 50),
+        Monster("Mountain Troll", "Earth", 60, 50, 40),
 	};
 
     cout << "Welcome to the tower of ???\n" << "In this game you will face 10 rounds of combat as you climb the tower\n"<<"Each sucessfully defeated round will grant you an item or equipment\n"<<"First lets build your team:\n\n";
