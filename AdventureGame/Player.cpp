@@ -22,10 +22,10 @@ int Player::getTarget(int max) {
 };
 
 
-void Player::chooseMonsters(vector<Monster> monsterList) {
+void Player::chooseMonsters(vector<Monster>* monsterListPointer) {
 	vector<Monster> tempMonsters = {};
 	cout << "You will be presented with 3 choices, each with 3 options for your party, choose with 1/2/3\n";
-	tempMonsters = monsterSubList(monsterList);
+	tempMonsters = monsterSubList(monsterListPointer);
 	//monsterListInfo(tempMonsters);
 	monsterParty = tempMonsters;
 };

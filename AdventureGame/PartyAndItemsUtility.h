@@ -24,5 +24,5 @@ public:
 	vector<Monster>* getMonsters();
 	// calls the .info method on each monster in a passed in monster list, passes the current index to the info function which is display in the terminal
 	void monsterPartyInfo();
-	vector<Monster> monsterSubList(vector<Monster> monsterList);
+	vector<Monster> monsterSubList(vector<Monster>* monsterListPointer);
 };

@@ -4,8 +4,8 @@
 
 using namespace std;
 
-void Location::genMonsters(vector<Monster> monsterList) {
-	monsterParty = monsterSubList(monsterList);
+void Location::genMonsters(vector<Monster>* monsterListPointer) {
+	monsterParty = monsterSubList(monsterListPointer);
 }
 void Location::showMonsters() {
 	cout << "\nThe " << getName() << " Has the following monsters:";

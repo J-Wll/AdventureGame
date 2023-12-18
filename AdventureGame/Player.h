@@ -11,7 +11,7 @@ private:
 	//vector<Monster> monsterParty = {};
 
 public:
-	void chooseMonsters(vector<Monster> monsterlist);
+	void chooseMonsters(vector<Monster>* monsterListPointer);
 	void showPlayersParty();
 	int getTarget(int max = 3);
 };

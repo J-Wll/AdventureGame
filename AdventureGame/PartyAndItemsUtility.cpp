@@ -36,12 +36,14 @@ using namespace std;
 
 
 // returns a list of 3 unique monsters from the large monster list
-vector<Monster> PartyAndItemsUtility::monsterSubList(vector<Monster> monsterList) {
+vector<Monster> PartyAndItemsUtility::monsterSubList(vector<Monster>* monsterListPointer) {
+	vector<Monster> monsterList = *monsterListPointer;
 	vector<Monster> returnList = {};
-	int listSize = monsterList.size();
+	vector<int> toBeRemoved = {};
+	int listSize = monsterList.size()-1;
 
 	// picks a random monster, checks if it is already in the list, if not it adds to the list
-	for (int i = 0; i < 3; i++) {
+	for (int i = 0; i < 3; ++i) {
 		// rand is seeded in main to prevent error
 		int randomInt = rand() % listSize;
 		Monster randomMon = monsterList[randomInt];
@@ -54,6 +56,14 @@ vector<Monster> PartyAndItemsUtility::monsterSubList(vector<Monster> monsterList
 			}
 		}
 		returnList.push_back(randomMon);
+		toBeRemoved.push_back(randomInt);
+	}
+
+	// sorts to be removed from highest to lowest (otherwise index could be out of bounds)
+	// removes the indexed value from using the monsterlistpointer, disabling the ability for future lists to have duplicates
+	sort(toBeRemoved.begin(), toBeRemoved.end(), greater<int>());
+	for (int num:toBeRemoved) {
+		monsterListPointer->erase(monsterListPointer->begin() + num);
 	}
 	return returnList;
 }

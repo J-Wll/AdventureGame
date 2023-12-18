@@ -16,54 +16,66 @@
     <Filter Include="Source Files\Header Implementations">
       <UniqueIdentifier>{d0c1c425-c8dc-4625-bad0-924872584e17}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Header Implementations\Classes">
+      <UniqueIdentifier>{718fef58-bd61-4be7-bd75-05156a287861}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Header Implementations\Game Functions">
+      <UniqueIdentifier>{eca9d701-50d5-44e6-82bb-60fdc88a3147}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Classes">
+      <UniqueIdentifier>{72d2a888-1b9a-4749-a1eb-d4cdf078b7c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Game Functions">
+      <UniqueIdentifier>{ae16fcb4-0409-474f-978f-012e1afd3a8a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="AttackCycle.cpp">
+      <Filter>Source Files\Header Implementations\Game Functions</Filter>
+    </ClCompile>
     <ClCompile Include="Item.cpp">
-      <Filter>Source Files\Header Implementations</Filter>
+      <Filter>Source Files\Header Implementations\Classes</Filter>
     </ClCompile>
     <ClCompile Include="Location.cpp">
-      <Filter>Source Files\Header Implementations</Filter>
+      <Filter>Source Files\Header Implementations\Classes</Filter>
     </ClCompile>
     <ClCompile Include="Monster.cpp">
-      <Filter>Source Files\Header Implementations</Filter>
+      <Filter>Source Files\Header Implementations\Classes</Filter>
     </ClCompile>
     <ClCompile Include="PartyAndItemsUtility.cpp">
-      <Filter>Source Files\Header Implementations</Filter>
+      <Filter>Source Files\Header Implementations\Classes</Filter>
     </ClCompile>
     <ClCompile Include="Player.cpp">
-      <Filter>Source Files\Header Implementations</Filter>
+      <Filter>Source Files\Header Implementations\Classes</Filter>
     </ClCompile>
     <ClCompile Include="Tower.cpp">
-      <Filter>Source Files\Header Implementations</Filter>
-    </ClCompile>
-    <ClCompile Include="AttackCycle.cpp">
-      <Filter>Source Files\Header Implementations</Filter>
+      <Filter>Source Files\Header Implementations\Classes</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Monster.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="PartyAndItemsUtility.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="AttackCycle.h">
+      <Filter>Header Files\Game Functions</Filter>
     </ClInclude>
     <ClInclude Include="Item.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Tower.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Classes</Filter>
     </ClInclude>
     <ClInclude Include="Location.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Monster.h">
+      <Filter>Header Files\Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="PartyAndItemsUtility.h">
+      <Filter>Header Files\Classes</Filter>
     </ClInclude>
     <ClInclude Include="Player.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Classes</Filter>
     </ClInclude>
-    <ClInclude Include="AttackCycle.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Tower.h">
+      <Filter>Header Files\Classes</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

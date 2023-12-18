@@ -8,6 +8,6 @@ private:
 	using PartyAndItemsUtility::PartyAndItemsUtility;
 	//vector<Monster> locationMonsters = {};
 public:
-	void genMonsters(vector<Monster> monsterList);
+	void genMonsters(vector<Monster>* monsterListPointer);
 	void showMonsters();
 };
