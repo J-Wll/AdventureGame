@@ -28,6 +28,7 @@ void attackCycle(Player* player, Location* currentLocation) {
 			" dealing " << attacking->takeDamage(mon->getAttack()) << " damage\n";
 
 		if (attacking->getHp() <= 0) {
+			cout << "\n" << attacking->getName() << " has died\n";
 			currentLocation->monsterParty.erase(currentLocation->monsterParty.begin() + target);
 		}
 		player->showPlayersParty();

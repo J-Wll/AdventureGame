@@ -22,7 +22,6 @@ int Monster::takeDamage(int attackValue) {
 	hp -= damageTaken;
 	if (hp <= 0) {
 		hp = 0;
-		cout << "\n" << name << " has died\n";
 	}
 	return damageTaken;
 }
