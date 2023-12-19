@@ -40,9 +40,10 @@ vector<Monster> Party::monsterSubList(vector<Monster>* monsterListPointer) {
 	vector<Monster> returnList = {};
 	vector<int> toBeRemoved = {};
 	int listSize = monsterList.size() - 1;
+	int SUBLISTSIZE = 3;
 
 	// picks a random monster, checks if it is already in the list, if not it adds to the list
-	for (int i = 0; i < 3; ++i) {
+	for (int i = 0; i < SUBLISTSIZE; ++i) {
 		// rand is seeded in main to prevent error
 		int randomInt = rand() % listSize;
 		Monster randomMon = monsterList[randomInt];

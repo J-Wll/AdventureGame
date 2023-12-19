@@ -15,9 +15,10 @@
 using namespace std;
 
 int main() {
-    Monster monster("a", "b");
-    Monster testMon = Monster("Default", "Neutral");
-	vector<Monster> monsterList = {
+    //Global lists for monsters, items and locations. This allows for variety and each round to feel different 
+    //TODO: Move to different file to avoid main clutter
+    //Global list of possible monsters
+	vector<Monster> globalMonsterList = {
         Monster("Wolf", "Neutral", 40, 70, 40),
         Monster("Shark", "Water", 50, 60, 40),
         Monster("Dragon", "Fire", 60, 70, 20),
@@ -38,17 +39,54 @@ int main() {
         Monster("Mountain Troll", "Earth", 60, 50, 40),
 	};
 
-    vector<Monster>* monsterListPointer = &monsterList;
+    //Global list of location names
+    vector<string> globalLocationNamesList = {
+        "Howling Labyrinth",
+        "Floor of Eternal Shadows",
+        "Abyssal Nexus",
+        "Cursed Crypt",
+        "Serpentine Sanctum",
+        "Dreadful Halls",
+        "Harrowing Catacombs",
+        "Necrotic Antechamber",
+        "Chaos Chamber",
+        "Malevolent Sanctum",
+        "Spectral Spires",
+        "Forsaken Vestibule",
+        "Doomshade Quarters",
+        "Cryptic Corridor",
+        "Darkfire Abyss",
+        "Sinister Sanctum",
+        "Nightshade Chambers",
+        "Eclipse Passage",
+        "Raven's Roost",
+        "Mystic Garden Floor",
+        "Elysian Echoes Floor",
+        "Infernal Inner Sanctum",
+        "Vortex of Vanity",
+        "Sable Stronghold",
+        "Cryptic Conclave",
+        "Enshrined Vault"
+    };
+
+    //Global list of items that can show in locations
+    vector<Item> globalItemList = {};
+
+    //Pointer passed to sublist generation, removes selected monster from the global list to prevent duplicates
+    vector<Monster>* monsterListPointer = &globalMonsterList;
 
     cout << "Welcome to the tower of ???\n" << "In this game you will face 10 rounds of combat as you climb the tower\n"<<"Each sucessfully defeated round will grant you an item or equipment\n"<<"First lets build your team:\n\n";
 
     // seeded in main to prevent error
     srand(time(NULL));
+
+    string randomLocationName = globalLocationNamesList[rand() % globalLocationNamesList.size()];
+
     Player* player = new Player("Bob");
     player->chooseMonsters(monsterListPointer);
     player->showPlayersParty();
 
-    Location* church = new Location("Church");
+    Location* church = new Location(randomLocationName);
     Location* currentLocation = church;
 
     currentLocation->genMonsters(monsterListPointer);
