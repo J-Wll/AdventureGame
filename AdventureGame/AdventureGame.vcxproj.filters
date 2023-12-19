@@ -83,5 +83,8 @@
     <ClInclude Include="Inventory.h">
       <Filter>Header Files\Classes</Filter>
     </ClInclude>
+    <ClInclude Include="GlobalLists.h">
+      <Filter>Header Files\Classes</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

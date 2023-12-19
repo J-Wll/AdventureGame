@@ -139,6 +139,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AttackCycle.h" />
+    <ClInclude Include="GlobalLists.h" />
     <ClInclude Include="Inventory.h" />
     <ClInclude Include="Location.h" />
     <ClInclude Include="Item.h" />
