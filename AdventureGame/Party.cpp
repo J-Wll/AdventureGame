@@ -23,9 +23,6 @@ vector<Monster>* Party::getParty() {
 
 // calls the .info method on each monster in a passed in monster list, passes the current index to the info function which is display in the terminal
 void Party::monsterPartyInfo() {
-	/*for (Monster mon : monlist) {
-		mon.info();
-	}*/
 	int lSize = monsterParty.size();
 	for (int i = 0; i < lSize; i++) {
 		monsterParty[i].info((to_string(i + 1) + ". "));
