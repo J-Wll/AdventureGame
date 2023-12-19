@@ -26,19 +26,22 @@ int main() {
     // seeded in main to prevent error
     srand(time(NULL));
 
-    string randomLocationName = globalLocationNamesList[rand() % globalLocationNamesList.size()];
-
     Player* player = new Player("Bob");
     player->chooseMonsters(monsterListPointer);
-    player->showPlayersParty();
 
-    Location* church = new Location(randomLocationName);
-    Location* currentLocation = church;
+    for (int i = 0; i < 3; i++) {
+        int randomNum = rand() % globalLocationNamesList.size();
+        string randomLocationName = globalLocationNamesList[randomNum];
+        globalLocationNamesList.erase(globalLocationNamesList.begin() + randomNum);
+        Location* currentLocation = new Location(randomLocationName);
 
-    currentLocation->genMonsters(monsterListPointer);
-    currentLocation->showMonsters();
+        currentLocation->genMonsters(monsterListPointer);
+        player->showPlayersParty();
+        currentLocation->showMonsters();
 
-    // cycle of every player monster fighting every location monster (for testing), (final version in a loop with a location var that changes)
-    attackCycle(player, currentLocation);
-    currentLocation->showMonsters();
+        // cycle of every player monster fighting every location monster (for testing), (final version in a loop with a location var that changes)
+        attackCycle(player, currentLocation);
+    }
+
+    cout << "Game over, thanks for playing";
 }

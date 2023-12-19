@@ -16,9 +16,9 @@ Monster::Monster(string iname, string itype, int ihp, int iatk, int idef) {
 
 void Monster::info(string opt = "") {
 	cout << "\n---\n" << opt
-		<< setw(5) << left << "Name: " << setw(23) << left << name << "|  Type: " << type 
+		<< setw(5) << left << "Name: " << setw(23) << left << name << " |  Type: " << type 
 		<< "\nStats: HP: " << setw(3) << left << hp << " ATK: " << setw(3)
-		<< left << atk << " DEF: " << setw(3) << left << def << "|  Equipped: " << equipped;
+		<< left << atk << " DEF: " << setw(3) << left << def << " |  Equipped: " << equipped;
 }
 
 int Monster::takeDamage(int attackValue) {
