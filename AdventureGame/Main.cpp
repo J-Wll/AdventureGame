@@ -1,4 +1,3 @@
-//#include <list>
 #include <iostream>
 #include <vector>
 #include <cstdlib>

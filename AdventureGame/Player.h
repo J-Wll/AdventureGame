@@ -1,15 +1,15 @@
 #pragma once
 
-#include "PartyAndItemsUtility.h"
-#include "Location.h"
+#include "Party.h"
 
 // 3 monsters, up to 9 items, lasts the whole game
-class Player : public PartyAndItemsUtility {
+class Player {
 private:
-	// using the constructor of PartyAndItemsUtility
-	using PartyAndItemsUtility::PartyAndItemsUtility;
-
+	string name;
 public:
+	Party party;
+	Player(string iname);
+	string getName();
 	void chooseMonsters(vector<Monster>* monsterListPointer);
 	void showPlayersParty();
 	int getTarget(int max = 3);

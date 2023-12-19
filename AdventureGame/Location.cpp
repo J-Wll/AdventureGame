@@ -1,13 +1,23 @@
 #pragma once
-#include "PartyAndItemsUtility.h"
+
+#include "Party.h"
 #include "Location.h"
 
 using namespace std;
 
-void Location::genMonsters(vector<Monster>* monsterListPointer) {
-	monsterParty = monsterSubList(monsterListPointer);
+Location::Location(string iname) {
+	name = iname;
 }
+
+string Location::getName() {
+	return name;
+}
+
+void Location::genMonsters(vector<Monster>* monsterListPointer) {
+	party.setParty(party.monsterSubList(monsterListPointer));
+}
+
 void Location::showMonsters() {
 	cout << "\nThe " << getName() << " Has the following monsters:";
-	monsterPartyInfo();
+	party.monsterPartyInfo();
 }

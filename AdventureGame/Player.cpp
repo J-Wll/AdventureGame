@@ -1,14 +1,21 @@
 #pragma once
 
-#include "PartyAndItemsUtility.h"
+#include "Party.h"
 #include "Player.h"
-#include "Location.h"
 
 // 3 monsters, up to 9 items, lasts the whole game
 
+Player::Player(string iname) {
+	name = iname;
+}
+
+string Player::getName() {
+	return name;
+}
+
 void Player::showPlayersParty() {
 	cout << "\nPlayers party:";
-	monsterPartyInfo();
+	party.monsterPartyInfo();
 }
 int Player::getTarget(int max) {
 	int min = 1;
@@ -25,8 +32,8 @@ int Player::getTarget(int max) {
 void Player::chooseMonsters(vector<Monster>* monsterListPointer) {
 	vector<Monster> tempMonsters = {};
 	cout << "You will be presented with 3 choices, each with 3 options for your party, choose with 1/2/3\n";
-	tempMonsters = monsterSubList(monsterListPointer);
+	tempMonsters = party.monsterSubList(monsterListPointer);
 	//monsterListInfo(tempMonsters);
-	monsterParty = tempMonsters;
+	party.setParty(tempMonsters);
 };
 

@@ -1,12 +1,15 @@
 #pragma once
-#include "PartyAndItemsUtility.h"
+
+#include "Party.h"
 
 // always 3 monsters 1 item, limited lifespan?
-class Location : public PartyAndItemsUtility {
+class Location {
 private:
-	// using the constructor of PartyAndItemsUtility
-	using PartyAndItemsUtility::PartyAndItemsUtility;
+	string name;
 public:
+	Party party;
+	Location(string iname);
+	string getName();
 	void genMonsters(vector<Monster>* monsterListPointer);
 	void showMonsters();
 };

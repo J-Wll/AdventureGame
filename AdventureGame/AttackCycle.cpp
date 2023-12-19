@@ -9,8 +9,8 @@ void attackCycle(Player* player, Location* currentLocation) {
 
 	for (int i = 0; i < 3; i++) {
 
-		vector<Monster>* playerPartyPtr = player->getMonsters();
-		vector<Monster>* locationPartyPtr = currentLocation->getMonsters();
+		vector<Monster>* playerPartyPtr = player->party.getParty();
+		vector<Monster>* locationPartyPtr = currentLocation->party.getParty();
 
 		//Inputs for attack
 		cout << "Which of your monsters should attack?, (Enter a whole number): ";
@@ -41,5 +41,5 @@ void attackCycle(Player* player, Location* currentLocation) {
 
 
 //}
-	currentLocation->monsterPartyInfo();
+	currentLocation->party.monsterPartyInfo();
 }

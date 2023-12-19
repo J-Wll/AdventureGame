@@ -45,13 +45,16 @@
     <ClCompile Include="Monster.cpp">
       <Filter>Source Files\Header Implementations\Classes</Filter>
     </ClCompile>
-    <ClCompile Include="PartyAndItemsUtility.cpp">
-      <Filter>Source Files\Header Implementations\Classes</Filter>
-    </ClCompile>
     <ClCompile Include="Player.cpp">
       <Filter>Source Files\Header Implementations\Classes</Filter>
     </ClCompile>
     <ClCompile Include="Tower.cpp">
+      <Filter>Source Files\Header Implementations\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Party.cpp">
+      <Filter>Source Files\Header Implementations\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Inventory.cpp">
       <Filter>Source Files\Header Implementations\Classes</Filter>
     </ClCompile>
   </ItemGroup>
@@ -66,9 +69,6 @@
       <Filter>Header Files\Classes</Filter>
     </ClInclude>
     <ClInclude Include="Monster.h">
-      <Filter>Header Files\Classes</Filter>
-    </ClInclude>
-    <ClInclude Include="PartyAndItemsUtility.h">
       <Filter>Header Files\Classes</Filter>
     </ClInclude>
     <ClInclude Include="Player.h">
