@@ -8,7 +8,6 @@ class Player : public PartyAndItemsUtility {
 private:
 	// using the constructor of PartyAndItemsUtility
 	using PartyAndItemsUtility::PartyAndItemsUtility;
-	//vector<Monster> monsterParty = {};
 
 public:
 	void chooseMonsters(vector<Monster>* monsterListPointer);

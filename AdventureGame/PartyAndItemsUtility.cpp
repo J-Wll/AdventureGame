@@ -18,8 +18,8 @@ using namespace std;
 		return name;
 	}
 	vector<Monster>* PartyAndItemsUtility::getMonsters() {
-		vector<Monster>* _monsterParty = &monsterParty;
-		return _monsterParty;
+		vector<Monster>* monsterPartyPtr = &monsterParty;
+		return monsterPartyPtr;
 	}
 
 	// calls the .info method on each monster in a passed in monster list, passes the current index to the info function which is display in the terminal

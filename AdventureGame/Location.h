@@ -6,7 +6,6 @@ class Location : public PartyAndItemsUtility {
 private:
 	// using the constructor of PartyAndItemsUtility
 	using PartyAndItemsUtility::PartyAndItemsUtility;
-	//vector<Monster> locationMonsters = {};
 public:
 	void genMonsters(vector<Monster>* monsterListPointer);
 	void showMonsters();
