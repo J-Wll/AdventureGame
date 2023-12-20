@@ -14,7 +14,7 @@ string Player::getName() {
 }
 
 void Player::showPlayersParty() {
-	cout << "\nPlayers party:";
+	cout << "\Your party:";
 	party.monsterPartyInfo();
 }
 int Player::getTarget(int max) {

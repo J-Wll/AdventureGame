@@ -12,4 +12,5 @@ public:
 	string getName();
 	void genMonsters(vector<Monster>* monsterListPointer);
 	void showMonsters();
+	void enter();
 };

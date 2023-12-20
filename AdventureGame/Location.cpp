@@ -21,3 +21,7 @@ void Location::showMonsters() {
 	cout << "\nThe " << getName() << " Has the following monsters:";
 	party.monsterPartyInfo();
 }
+
+void Location::enter() {
+	cout << "\n---You have entered The " << name << "---\n\n";
+}

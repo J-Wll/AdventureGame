@@ -21,7 +21,13 @@ int main() {
     //Pointer passed to sublist generation, removes selected monster from the global list to prevent duplicates
     vector<Monster>* monsterListPointer = &globalMonsterList;
 
-    cout << "Welcome to the tower of ???\n" << "In this game you will face 10 rounds of combat as you climb the tower\n"<<"Each sucessfully defeated round will grant you an item or equipment\n"<<"First lets build your team:\n\n";
+    cout << "Welcome to the tower of ???\n" <<
+        "In this game you will face 10 rounds of combat against groups of monsters as you climb the tower\n"<<
+        "Each sucessfully completed round will grant you a reward and a full heal\n"<<
+        "A boss resides at the top of the tower\n"<<
+        "Fire types are effective against earth, earth against water and water against fire\n"<<
+        "Neutral types are equally effective against all types\n"
+        "Lets build the team you'll use to climb this tower:\n\n";
 
     // seeded in main to prevent error
     srand(time(NULL));
@@ -34,6 +40,8 @@ int main() {
         string randomLocationName = globalLocationNamesList[randomNum];
         globalLocationNamesList.erase(globalLocationNamesList.begin() + randomNum);
         Location* currentLocation = new Location(randomLocationName);
+
+        currentLocation->enter();
 
         currentLocation->genMonsters(monsterListPointer);
         player->showPlayersParty();
