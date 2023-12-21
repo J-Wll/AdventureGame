@@ -1,6 +1,7 @@
 #pragma once
 //Global lists for monsters, items and locations. This allows for variety and each round to feel different. Elements are randomly selected from each list for use  
 //Global list of possible monsters
+// Name, Type, HP, ATK, DEF
 vector<Monster> globalMonsterList = {
     Monster("Wolf", "Neutral", 40, 70, 40),
     Monster("Shark", "Water", 50, 60, 40),
@@ -20,6 +21,12 @@ vector<Monster> globalMonsterList = {
     Monster("Leviathan", "Water", 70, 40, 40),
     Monster("Fire Sprite", "Fire", 30, 70, 50),
     Monster("Mountain Troll", "Earth", 60, 50, 40),
+    Monster("Spectral Wraith", "Neutral", 45, 65, 35),
+    Monster("Chimera", "Fire", 65, 65, 30),
+    Monster("Sea Serpent", "Water", 65, 45, 35),
+    Monster("Stone Behemoth", "Earth", 70, 35, 65),
+    Monster("Desert Scorpion", "Earth", 55, 30, 55),
+    Monster("Wicked Imp", "Neutral", 45, 65, 45)
 };
 
 //Global list of location names
