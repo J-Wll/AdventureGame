@@ -34,6 +34,8 @@ int main() {
 
     Player* player = new Player("Bob");
     player->chooseMonsters(monsterListPointer);
+    Item* testItem = new Item("testItem", "", 20, 40, 30);
+    player->party.getParty()->at(0).setEquipment(testItem);
 
     for (int i = 0; i < 3; i++) {
         int randomNum = rand() % globalLocationNamesList.size();
@@ -43,9 +45,6 @@ int main() {
 
         currentLocation->enter();
         currentLocation->genMonsters(monsterListPointer);
-
-        Item* testItem = new Item("testItem", "", 20, 40, 30);
-        player->party.getParty()->at(0).setEquipment(testItem);
 
         player->showPlayersParty();
         currentLocation->showMonsters();
