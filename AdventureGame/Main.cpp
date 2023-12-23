@@ -42,8 +42,11 @@ int main() {
         Location* currentLocation = new Location(randomLocationName);
 
         currentLocation->enter();
-
         currentLocation->genMonsters(monsterListPointer);
+
+        Item* testItem = new Item("testItem", "", 20, 40, 30);
+        player->party.getParty()->at(0).setEquipment(testItem);
+
         player->showPlayersParty();
         currentLocation->showMonsters();
 

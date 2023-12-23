@@ -45,6 +45,13 @@ string Monster::getName() { return name; };
 void Monster::setType(string in) { type = in; };
 string Monster::getType() { return type; };
 
+void Monster::setEquipment(Item* item) {
+	hp += item->itemHp;
+	atk += item->itemAtk;
+	def += item->itemDef;
+	equipped = item->getName();
+}
+
 bool Monster::operator==(const Monster& compare) {
 	return (name == compare.name);
 }

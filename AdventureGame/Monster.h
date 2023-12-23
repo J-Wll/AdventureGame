@@ -2,6 +2,7 @@
 
 #include <vector>
 #include <iostream>
+#include "Item.h"
 
 using namespace std;
 
@@ -33,7 +34,7 @@ class Monster
 		void setType(string in);
 		string getType();
 
-		void setEquipment();
+		void setEquipment(Item* item);
 
 		// later this will ask for and get the move from a move list dependant on type
 		int getAttack();
