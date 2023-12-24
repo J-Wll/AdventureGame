@@ -34,7 +34,7 @@ int main() {
 
     Player* player = new Player("Bob");
     player->chooseMonsters(monsterListPointer);
-    Item* testItem = new Item("testItem", "", 20, 40, 30);
+    Item* testItem = new Item("testItem", "Common", 20, 40, 30);
     player->party.getParty()->at(0).setEquipment(testItem);
 
     for (int i = 0; i < 3; i++) {

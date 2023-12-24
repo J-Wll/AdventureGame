@@ -6,9 +6,9 @@ string Item::getName() {
 	return name;
 }
 
-Item::Item(string iName, string iType, int iItemHp, int iItemAtk, int iItemDef) {
+Item::Item(string iName, string iRarity, int iItemHp, int iItemAtk, int iItemDef) {
 	name = iName;
-	type = iType;
+	rarity = iRarity;
 	itemHp = iItemHp;
 	itemAtk = iItemAtk;
 	itemDef = iItemDef;
