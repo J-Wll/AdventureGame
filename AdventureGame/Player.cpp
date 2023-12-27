@@ -1,5 +1,8 @@
 #pragma once
 
+#include <ios>
+#include <limits>
+
 #include "Party.h"
 #include "Player.h"
 
@@ -22,6 +25,8 @@ int Player::getTarget(int max) {
 	int inp;
 	cin >> inp;
 	if (inp > max || inp < min) {
+		cin.clear();
+		cin.ignore(numeric_limits<streamsize>::max(), '\n');
 		cout << "Invalid input, enter again:\n";
 		return getTarget(max);
 	}
