@@ -60,4 +60,33 @@ vector<string> globalLocationNamesList = {
 };
 
 //Global list of items that can show in locations
-vector<Item> globalItemList = {};
+vector<Item> globalItemList = {
+     Item("Power Gem", "Common", 20, 20, 0),
+     Item("Abyssal Dagger", "Uncommon", 0, 40, 10),
+     Item("Elixir of Vitality", "Rare", 50, 0, 0),
+     Item("Flame Sword", "Common", 10, 30, 5),
+     Item("Phoenix Feather", "Legendary", 100, 50, 30),
+     Item("Thunder Wand", "Rare", 30, 55, 15),
+     Item("Silver Shield", "Uncommon", 45, 10, 25),
+     Item("Mystic Robe", "Common", 25, 15, 10),
+     Item("Soul Stone", "Epic", 70, 35, 20),
+     Item("Frostblade", "Rare", 15, 55, 15),
+     Item("Ruby Amulet", "Common", 30, 5, 5),     
+     Item("Emerald Dagger", "Uncommon", 5, 35, 5),   
+     Item("Sapphire Ring", "Rare", 45, 10, 20),       
+     Item("Diamond Sword", "Epic", 20, 85, 15),       
+     Item("Platinum Shield", "Legendary", 50, 30, 80),
+     Item("Venomous Fang", "Common", 15, 35, 0),
+     Item("Frost Staff", "Uncommon", 10, 50, 10),
+     Item("Aegis Plate", "Rare", 60, 10, 35),
+     Item("Celestial Robe", "Rare", 40, 20, 35),
+     Item("Inferno Blade", "Epic", 25, 80, 25),
+     Item("Stormcaller", "Legendary", 60, 80, 40),
+     Item("Crystal Heart", "Epic", 80, 10, 50),
+     Item("Doombringer", "Legendary", 10, 80, 10),
+     Item("Opal Pendant", "Common", 25, 5, 5),
+     Item("Assassin's Blade", "Uncommon", 5, 40, 5),
+     Item("Crimson Ring", "Rare", 45, 35, 20),
+     Item("Voidblade", "Rare", 10, 60, 15),
+};
+

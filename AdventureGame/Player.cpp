@@ -33,7 +33,6 @@ void Player::chooseMonsters(vector<Monster>* monsterListPointer) {
 	vector<Monster> tempMonsters = {};
 	cout << "You will be presented with 3 choices, each with 3 options for your party, choose with 1/2/3\n";
 	tempMonsters = party.monsterSubList(monsterListPointer);
-	//monsterListInfo(tempMonsters);
 	party.setParty(tempMonsters);
 };
 

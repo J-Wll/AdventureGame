@@ -43,10 +43,13 @@ int main() {
 
     // Main game loop
     for (int i = 0; i < 3; i++) {
-        int randomNum = rand() % globalLocationNamesList.size();
-        string randomLocationName = globalLocationNamesList[randomNum];
-        globalLocationNamesList.erase(globalLocationNamesList.begin() + randomNum);
+        // selects a random name for a location and removes it from the global list
+        int randomNumLocation = rand() % globalLocationNamesList.size();
+        string randomLocationName = globalLocationNamesList[randomNumLocation];
+        globalLocationNamesList.erase(globalLocationNamesList.begin() + randomNumLocation);
         Location* currentLocation = new Location(randomLocationName);
+
+
 
         currentLocation->enter();
         currentLocation->genMonsters(monsterListPointer);
@@ -56,9 +59,11 @@ int main() {
 
         // storing the original party to remove in combat changes afterwards(damage taking)
         vector<Monster> preCombatParty = *player->party.getParty();
+
         // cycle of every player monster fighting every location monster (for testing), (final version in a loop with a location var that changes)
         attackCycle(player, currentLocation);
         player->party.setParty(preCombatParty);
+
         //new item handling here
 
         // if player party gets wiped, fail message of location
