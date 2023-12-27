@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 #include <cstdlib>
 #include <ctime>
@@ -40,9 +39,10 @@ int main() {
     player->chooseMonsters(monsterListPointer);
     Item* testItem = new Item("testItem", "Common", 20, 40, 30);
     player->party.getParty()->at(0).setEquipment(testItem);
+    int LOCATIONCOUNT = 3;
 
     // Main game loop
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < LOCATIONCOUNT; i++) {
         // selects a random name for a location and removes it from the global list
         int randomNumLocation = rand() % globalLocationNamesList.size();
         string randomLocationName = globalLocationNamesList[randomNumLocation];
@@ -64,14 +64,20 @@ int main() {
 
         // cycle of every player monster fighting every location monster (for testing), (final version in a loop with a location var that changes)
         attackCycle(player, currentLocation);
-        player->party.setParty(preCombatParty);
-
-        //new item handling here
 
         // if player party gets wiped, fail message of location
         //currentLocation->fail();
+      
+        //Reset party
+        player->party.setParty(preCombatParty);
+
         currentLocation->finish();
-        randomItem.info();
+        
+        // Items only gained if not in the last section
+        if (i != LOCATIONCOUNT) {
+            cout << "\nYou find " << randomItem.getName() << " in " << currentLocation->getName() << "\n";
+            randomItem.info();
+        }
     }
 
     cout << "Game over, thanks for playing";
