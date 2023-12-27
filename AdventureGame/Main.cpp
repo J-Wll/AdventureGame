@@ -49,7 +49,9 @@ int main() {
         globalLocationNamesList.erase(globalLocationNamesList.begin() + randomNumLocation);
         Location* currentLocation = new Location(randomLocationName);
 
-
+        int randomNumItem = rand() % globalItemList.size();
+        Item randomItem = globalItemList[randomNumItem];
+        globalItemList.erase(globalItemList.begin() + randomNumItem);
 
         currentLocation->enter();
         currentLocation->genMonsters(monsterListPointer);
@@ -69,6 +71,7 @@ int main() {
         // if player party gets wiped, fail message of location
         //currentLocation->fail();
         currentLocation->finish();
+        randomItem.info();
     }
 
     cout << "Game over, thanks for playing";

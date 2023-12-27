@@ -15,6 +15,7 @@ public:
 	int itemDef = 0;
 	string getName();
 	Item(string iName, string iRarity, int iItemHp, int iItemAtk, int iItemDef);
+	void info();
 };
 
 //class Equipment : public Item {
