@@ -6,10 +6,11 @@
 
 using namespace std;
 
-Monster::Monster(string iname, string itype, int ihp, int iatk, int idef) {
+Monster::Monster(string iname, string itype, int iMaxHp, int iatk, int idef) {
 	name = iname;
 	type = itype;
-	hp = ihp;
+	maxHp = iMaxHp;
+	hp = maxHp;
 	atk = iatk;
 	def = idef;
 }
@@ -46,10 +47,21 @@ void Monster::setType(string in) { type = in; };
 string Monster::getType() { return type; };
 
 void Monster::setEquipment(Item* item) {
+	maxHp += item->itemHp;
 	hp += item->itemHp;
 	atk += item->itemAtk;
 	def += item->itemDef;
 	equipped = item->getName();
+}
+
+void Monster::attack(Monster* attacking) {
+	cout << "\n" << name << " Attacks " << attacking->getName() <<
+		" dealing " << attacking->takeDamage(atk) << " damage\n";
+	cout << "\n" << name << " Takes " << takeDamage(attacking->getAttack()/2) << " damage during the combat\n";
+}
+
+void Monster::resetHealth() {
+	hp = maxHp;
 }
 
 bool Monster::operator==(const Monster& compare) {

@@ -18,6 +18,7 @@ class Monster
 		// name, type and stats of monster, stats have a maximum of 100 (before equipment)
 		string name;
 		string type;
+		int maxHp;
 		int hp;
 		int atk;
 		int def;
@@ -25,7 +26,7 @@ class Monster
 		string equipped = "None";
 
 	public:
-		Monster(string iname, string itype, int ihp=50, int iatk=50, int idef=50);
+		Monster(string iname, string itype, int iMaxHp=50, int iatk=50, int idef=50);
 		void info(string opt);
 
 		void setName(string in);
@@ -35,6 +36,10 @@ class Monster
 		string getType();
 
 		void setEquipment(Item* item);
+
+		void attack(Monster* attacking);
+
+		void resetHealth();
 
 		// later this will ask for and get the move from a move list dependant on type
 		int getAttack();

@@ -21,12 +21,16 @@ int main() {
     //Pointer passed to sublist generation, removes selected monster from the global list to prevent duplicates
     vector<Monster>* monsterListPointer = &globalMonsterList;
 
-    cout << "Welcome to the tower of ???\n" <<
+    cout << "---Overview---\n\n"<<
+        "Welcome to the tower of ???\n" <<
         "In this game you will face 10 rounds of combat against groups of monsters as you climb the tower\n"<<
         "Each sucessfully completed round will grant you a reward and a full heal\n"<<
         "A boss resides at the top of the tower\n"<<
+        "\n---Combat info---\n\n"
         "Fire types are effective against earth, earth against water and water against fire\n"<<
-        "Neutral types are equally effective against all types\n"
+        "Neutral types are equally effective against all types\n"<<
+        "During combat, the monster you select will attack an enemy, while delivering the attack they will take damage equal to half the attack of the opponent\n"<<
+        "\n---Start---\n\n"<<
         "Lets build the team you'll use to climb this tower:\n\n";
 
     // seeded in main to prevent error
@@ -50,8 +54,13 @@ int main() {
         player->showPlayersParty();
         currentLocation->showMonsters();
 
+        // storing the original party to remove in combat changes afterwards(damage taking)
+        vector<Monster> preCombatParty = *player->party.getParty();
         // cycle of every player monster fighting every location monster (for testing), (final version in a loop with a location var that changes)
         attackCycle(player, currentLocation);
+        player->party.setParty(preCombatParty);
+        //new item handling here
+
         // if player party gets wiped, fail message of location
         //currentLocation->fail();
         currentLocation->finish();

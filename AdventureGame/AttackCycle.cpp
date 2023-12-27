@@ -5,8 +5,15 @@
 
 // takes a location, iterates over the monsters at the location for combat
 // after combat, takes the item from that location
-void attackCycle(Player* player, Location* currentLocation) {
 
+void deathCheck(Monster* checking, vector<Monster>* partyPtr, int target) {
+	if (checking->getHp() <= 0) {
+		cout << "\n" << checking->getName() << " has died\n";
+		partyPtr->erase(partyPtr->begin() + target);
+	}
+}
+
+void attackCycle(Player* player, Location* currentLocation) {
 	for (int i = 0; i < 3; i++) {
 
 		vector<Monster>* playerPartyPtr = player->party.getParty();
@@ -23,14 +30,11 @@ void attackCycle(Player* player, Location* currentLocation) {
 		Monster* attacking = &locationPartyPtr->at(target);
 
 		//Attack and message
-		cout << "\n" << mon->getName() << " Attacks " << attacking->getName() <<
-			" dealing " << attacking->takeDamage(mon->getAttack()) << " damage\n";
+		mon->attack(attacking);
 
-		//Check for death
-		if (attacking->getHp() <= 0) {
-			cout << "\n" << attacking->getName() << " has died\n";
-			locationPartyPtr->erase(locationPartyPtr->begin() + target);
-		}
+		//Check for death, remove from party and print message if death
+		deathCheck(attacking, locationPartyPtr, target);
+		deathCheck(mon, playerPartyPtr, attacker);
 
 		//Display updated parties
 		player->showPlayersParty();
@@ -43,3 +47,4 @@ void attackCycle(Player* player, Location* currentLocation) {
 //}
 	currentLocation->party.monsterPartyInfo();
 }
+

@@ -12,8 +12,8 @@ using namespace std;
 
 vector<Monster> monsterParty = {};
 
-void Party::setParty(vector<Monster> inpParty) {
-	monsterParty = inpParty;
+void Party::setParty(vector<Monster> iParty) {
+	monsterParty = iParty;
 }
 
 vector<Monster>* Party::getParty() {
@@ -29,7 +29,6 @@ void Party::monsterPartyInfo() {
 	}
 	cout << "\n---\n";
 }
-
 
 // returns a list of 3 unique monsters from the large monster list
 vector<Monster> Party::monsterSubList(vector<Monster>* monsterListPointer) {

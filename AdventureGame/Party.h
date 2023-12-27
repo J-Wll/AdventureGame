@@ -10,7 +10,7 @@ public:
 	void monsterPartyInfo();
 	vector<Monster> monsterSubList(vector<Monster>* monsterListPointer);
 	vector<Monster>* getParty();
-	void setParty(vector<Monster> inpParty);
+	void setParty(vector<Monster> iParty);
 };
 
 
