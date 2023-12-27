@@ -13,4 +13,6 @@ public:
 	void genMonsters(vector<Monster>* monsterListPointer);
 	void showMonsters();
 	void enter();
+	void fail();
+	void finish();
 };

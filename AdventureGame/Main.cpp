@@ -37,6 +37,7 @@ int main() {
     Item* testItem = new Item("testItem", "Common", 20, 40, 30);
     player->party.getParty()->at(0).setEquipment(testItem);
 
+    // Main game loop
     for (int i = 0; i < 3; i++) {
         int randomNum = rand() % globalLocationNamesList.size();
         string randomLocationName = globalLocationNamesList[randomNum];
@@ -51,6 +52,9 @@ int main() {
 
         // cycle of every player monster fighting every location monster (for testing), (final version in a loop with a location var that changes)
         attackCycle(player, currentLocation);
+        // if player party gets wiped, fail message of location
+        //currentLocation->fail();
+        currentLocation->finish();
     }
 
     cout << "Game over, thanks for playing";

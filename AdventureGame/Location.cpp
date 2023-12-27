@@ -23,5 +23,13 @@ void Location::showMonsters() {
 }
 
 void Location::enter() {
-	cout << "\n---You have entered The " << name << "---\n\n";
+	cout << "\n---You proceed to The " << name << "---\n\n";
+}
+
+void Location::fail() {
+	cout << "\n---You have been defeated by The " << name << "---\n\n";
+}
+
+void Location::finish() {
+	cout << "\n---You have vanquished the foes of The " << name << "---\n\n";
 }
