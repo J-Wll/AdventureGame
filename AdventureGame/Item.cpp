@@ -17,6 +17,6 @@ string Item::getName() {
 
 void Item::info() {
 	cout << "Name: " << name << ", Rarity: " << rarity
-		<< ", HP: " << itemHp << ", Attack: " << itemAtk
-		<< ", Defense: " << itemDef << "\n";
+		<< ", HP: " << itemHp << ", ATK: " << itemAtk
+		<< ", DEF: " << itemDef << "\n";
 }

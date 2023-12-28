@@ -51,7 +51,12 @@ void Monster::setEquipment(Item* item) {
 	hp += item->itemHp;
 	atk += item->itemAtk;
 	def += item->itemDef;
-	equipped = item->getName();
+	if (itemCount == 0) {
+		equipped = item->getName();
+	} else {
+		equipped += ", " + item->getName();
+	}
+	itemCount += 1;
 }
 
 void Monster::attack(Monster* attacking) {

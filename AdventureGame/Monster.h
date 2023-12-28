@@ -22,8 +22,8 @@ class Monster
 		int hp;
 		int atk;
 		int def;
-		// name of equipment(If any), later this will be passed an equipment pointer that effects stats
 		string equipped = "None";
+		int itemCount = 0;
 
 	public:
 		Monster(string iname, string itype, int iMaxHp=50, int iatk=50, int idef=50);

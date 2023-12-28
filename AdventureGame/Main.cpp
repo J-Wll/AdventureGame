@@ -22,7 +22,7 @@ int main() {
 
     cout << "---Overview---\n\n"<<
         "Welcome to the tower of ???\n" <<
-        "In this game you will face 10 rounds of combat against groups of monsters as you climb the tower\n"<<
+        "In this game you will face 5 rounds of combat against groups of monsters as you climb the tower\n"<<
         "Each sucessfully completed round will grant you a reward and a full heal\n"<<
         "A boss resides at the top of the tower\n"<<
         "\n---Combat info---\n\n"
@@ -39,7 +39,7 @@ int main() {
     player->chooseMonsters(monsterListPointer);
     Item* testItem = new Item("testItem", "Common", 20, 40, 30);
     player->party.getParty()->at(0).setEquipment(testItem);
-    int LOCATIONCOUNT = 3;
+    int LOCATIONCOUNT = 5;
 
     // Main game loop
     for (int i = 0; i < LOCATIONCOUNT; i++) {
@@ -77,6 +77,11 @@ int main() {
         if (i != LOCATIONCOUNT) {
             cout << "\nYou find " << randomItem.getName() << " in " << currentLocation->getName() << "\n";
             randomItem.info();
+            cout << "Choose a monster to equip the item";
+            int target = player->getTarget(player->party.getParty()->size()) - 1;
+            Monster* mon = &player->party.getParty()->at(target);
+            mon->setEquipment(&randomItem);
+
         }
     }
 
