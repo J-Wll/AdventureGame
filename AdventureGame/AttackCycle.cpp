@@ -13,8 +13,8 @@ void deathCheck(Monster* checking, vector<Monster>* partyPtr, int target) {
 	}
 }
 
-void attackCycle(Player* player, Location* currentLocation) {
-	for (int i = 0; i < 3; i++) {
+bool attackCycle(Player* player, Location* currentLocation) {
+	while (true) {
 
 		vector<Monster>* playerPartyPtr = player->party.getParty();
 		vector<Monster>* locationPartyPtr = currentLocation->party.getParty();
@@ -32,9 +32,19 @@ void attackCycle(Player* player, Location* currentLocation) {
 		//Attack and message
 		mon->attack(attacking);
 
-		//Check for death, remove from party and print message if death
+		//Check for death, remove from party and print message on death
 		deathCheck(attacking, locationPartyPtr, target);
 		deathCheck(mon, playerPartyPtr, attacker);
+
+		if (playerPartyPtr->size() == 0) {
+			cout << "Defeated";
+			return true;
+		}
+
+		if (locationPartyPtr->size() == 0) {
+			cout << "Victorious";
+			return false;
+		}
 
 		player->party.partyDecreaseCooldown();
 		currentLocation->party.partyDecreaseCooldown();

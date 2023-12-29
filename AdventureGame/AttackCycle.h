@@ -2,4 +2,4 @@
 #include "Location.h"
 #include "Player.h"
 
-void attackCycle(Player* player, Location* currentLocation);
+bool attackCycle(Player* player, Location* currentLocation);

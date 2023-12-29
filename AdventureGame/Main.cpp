@@ -63,15 +63,20 @@ int main() {
         vector<Monster> preCombatParty = *player->party.getParty();
 
         // cycle of every player monster fighting every location monster (for testing), (final version in a loop with a location var that changes)
-        attackCycle(player, currentLocation);
+        bool defeated = attackCycle(player, currentLocation);
 
-        // if player party gets wiped, fail message of location
-        //currentLocation->fail();
-      
+        if (defeated) {
+            // if player party gets wiped, fail message of location
+            currentLocation->fail();
+            break;
+        }
+        else {
+            currentLocation->finish();
+        }
+
         //Reset party
         player->party.setParty(preCombatParty);
 
-        currentLocation->finish();
         
         // Items only gained if not in the last section
         if (i != LOCATIONCOUNT) {
