@@ -28,7 +28,8 @@ int main() {
         "\n---Combat info---\n\n"
         "Fire types are effective against earth, earth against water and water against fire\n"<<
         "Neutral types are equally effective against all types\n"<<
-        "During combat, the monster you select will attack an enemy, while delivering the attack they will take damage equal to half the attack of the opponent\n"<<
+        "During combat, the monster you select will attack an enemy\n"<<
+        "While delivering the attack they will take damage equal to half the attack of the opponent (Regardless of type)\n"<<
         "\n---Start---\n\n"<<
         "Lets build the team you'll use to climb this tower:\n\n";
 
