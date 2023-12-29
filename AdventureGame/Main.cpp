@@ -77,7 +77,7 @@ int main() {
         if (i != LOCATIONCOUNT) {
             cout << "\nYou find " << randomItem.getName() << " in " << currentLocation->getName() << "\n";
             randomItem.info();
-            cout << "Choose a monster to equip the item";
+            cout << "Choose a monster to equip the item (Enter a whole number): ";
             int target = player->getTarget(player->party.getParty()->size()) - 1;
             Monster* mon = &player->party.getParty()->at(target);
             mon->setEquipment(&randomItem);

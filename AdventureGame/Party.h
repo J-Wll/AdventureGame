@@ -11,6 +11,7 @@ public:
 	vector<Monster> monsterSubList(vector<Monster>* monsterListPointer);
 	vector<Monster>* getParty();
 	void setParty(vector<Monster> iParty);
+	void partyDecreaseCooldown();
 };
 
 

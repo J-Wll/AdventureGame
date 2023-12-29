@@ -16,10 +16,15 @@ Monster::Monster(string iname, string itype, int iMaxHp, int iatk, int idef) {
 }
 
 void Monster::info(string opt = "") {
-	cout << "\n---\n" << opt
+	string cooldownText = "";
+	if (cooldown > 0) {
+		cooldownText = "\n---ON COOLDOWN FOR "  + to_string(cooldown) + " TURNS---";
+	}
+	cout << "\n---\n" << opt 
 		<< setw(5) << left << "Name: " << setw(23) << left << name << " |  Type: " << type 
 		<< "\nStats: HP: " << setw(3) << left << hp << " ATK: " << setw(3)
-		<< left << atk << " DEF: " << setw(3) << left << def << " |  Equipped: " << equipped;
+		<< left << atk << " DEF: " << setw(3) << left << def << " |  Equipped: " << equipped
+		<< cooldownText;
 }
 
 int Monster::takeDamage(int attackValue) {
@@ -60,9 +65,21 @@ void Monster::setEquipment(Item* item) {
 }
 
 void Monster::attack(Monster* attacking) {
-	cout << "\n" << name << " Attacks " << attacking->getName() <<
-		" dealing " << attacking->takeDamage(atk) << " damage\n";
-	cout << "\n" << name << " Takes " << takeDamage(attacking->getAttack()/2) << " damage during the combat\n";
+	if (cooldown == 0) {
+		cout << "\n" << name << " Attacks " << attacking->getName() <<
+			" dealing " << attacking->takeDamage(atk) << " damage\n";
+		cout << "\n" << name << " Takes " << takeDamage(attacking->getAttack() / 2) << " damage during the combat\n";
+		cooldown += 2;
+	}
+	else {
+		cout << "\n\n" << name << " Is on cooldown\n\n";
+	}
+}
+
+void Monster::decreaseCooldown() {
+	if (cooldown > 0) {
+		cooldown -= 1;
+	}
 }
 
 void Monster::resetHealth() {

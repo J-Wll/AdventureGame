@@ -36,6 +36,10 @@ void attackCycle(Player* player, Location* currentLocation) {
 		deathCheck(attacking, locationPartyPtr, target);
 		deathCheck(mon, playerPartyPtr, attacker);
 
+		player->party.partyDecreaseCooldown();
+		currentLocation->party.partyDecreaseCooldown();
+
+
 		//Display updated parties
 		player->showPlayersParty();
 		currentLocation->showMonsters();

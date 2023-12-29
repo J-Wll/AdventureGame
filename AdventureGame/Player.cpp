@@ -20,6 +20,7 @@ void Player::showPlayersParty() {
 	cout << "\Your party:";
 	party.monsterPartyInfo();
 }
+
 int Player::getTarget(int max) {
 	int min = 1;
 	int inp;
