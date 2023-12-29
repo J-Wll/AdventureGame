@@ -30,7 +30,10 @@ bool attackCycle(Player* player, Location* currentLocation) {
 		Monster* attacking = &locationPartyPtr->at(target);
 
 		//Attack and message
-		mon->attack(attacking);
+		bool attackHappened = mon->attack(attacking);
+		if (!attackHappened) {
+			continue;
+		}
 
 		//Check for death, remove from party and print message on death
 		deathCheck(attacking, locationPartyPtr, target);
