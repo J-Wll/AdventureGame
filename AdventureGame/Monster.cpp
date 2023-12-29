@@ -28,7 +28,10 @@ void Monster::info(string opt = "") {
 }
 
 int Monster::takeDamage(int attackValue) {
-	int damageTaken = (attackValue * def / 100);
+	int damageTaken = (attackValue / (def * 0.05));
+	if (damageTaken <= 0) {
+		return 0;
+	}
 	hp -= damageTaken;
 	if (hp <= 0) {
 		hp = 0;
@@ -86,7 +89,7 @@ bool Monster::attack(Monster* attacking) {
 
 		cout << "\n" << name << " Attacks " << attacking->getName() <<
 			" dealing " << attacking->takeDamage(attackValue) << " damage\n" << effectiveAttack;
-		cout << "\n" << name << " Takes " << takeDamage(attacking->getAttack() / 2) << " damage during the combat\n";
+		cout << "\n" << name << " Takes " << takeDamage(attacking->getAttack() / 4) << " damage during the combat\n";
 		//cooldown number is 1 higher than reality because it goes down right after the attack
 		cooldown += 2;
 		//attacked
