@@ -33,9 +33,16 @@ void Party::partyDecreaseCooldown() {
 	for (int i = 0; i < monsterParty.size(); i++) {
 		monsterParty[i].decreaseCooldown();
 	}
-	//for (Monster mon:monsterParty) {
-		//mon.decreaseCooldown();
-	//}
+}
+
+bool Party::availableMonsters() {
+	bool available = false;
+	for (Monster mon : monsterParty) {
+		if (mon.getCooldown() == 0) {
+			available = true;
+		}
+	}
+	return available;
 }
 
 // returns a list of 3 unique monsters from the large monster list

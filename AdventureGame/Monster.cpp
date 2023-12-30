@@ -108,6 +108,10 @@ void Monster::resetHealth() {
 	hp = maxHp;
 }
 
+int Monster::getCooldown() {
+	return cooldown;
+}
+
 bool Monster::operator==(const Monster& compare) {
 	return (name == compare.name);
 }

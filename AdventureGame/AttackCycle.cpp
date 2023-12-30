@@ -37,23 +37,26 @@ bool attackCycle(Player* player, Location* currentLocation) {
 		vector<Monster>* locationPartyPtr = currentLocation->party.getParty();
 
 		// Player attack
-		while (true) {
-			//Inputs for attack
-			cout << "Which of your monsters should attack?, (Enter a whole number): ";
-			monNum = player->getTarget(playerPartyPtr->size()) - 1;
-			cout << "Choose an enemy to target, (Enter a whole number): ";
-			targetNum = player->getTarget(locationPartyPtr->size()) - 1;
+		if (player->party.availableMonsters()) {
+			while (true) {
+				//Inputs for attack
+				cout << "Which of your monsters should attack?, (Enter a whole number): ";
+				monNum = player->getTarget(playerPartyPtr->size()) - 1;
+				cout << "Choose an enemy to target, (Enter a whole number): ";
+				targetNum = player->getTarget(locationPartyPtr->size()) - 1;
 
-			//Getting the monster and what it is targeting
-			mon = &playerPartyPtr->at(monNum);
-			target = &locationPartyPtr->at(targetNum);
+				//Getting the monster and what it is targeting
+				mon = &playerPartyPtr->at(monNum);
+				target = &locationPartyPtr->at(targetNum);
 
-			//Attack and message
-			attackHappened = mon->attack(target, "Your ");
-			if (attackHappened) {
-				break;
+				//Attack and message
+				attackHappened = mon->attack(target, "Your ");
+				if (attackHappened) {
+					break;
+				}
 			}
-		}
+
+		
 
 		//Check for death, remove from party and print message on death
 		playerStatus = deathCheck(mon, playerPartyPtr, monNum, true);
@@ -65,8 +68,16 @@ bool attackCycle(Player* player, Location* currentLocation) {
 		if (locationStatus == 2) {
 			return false;
 		}
+		}
+		// If no monsters to attack
+		else {
+			cout << "\n---You have no monsters that can attack! Turn skipped---\n";
+		}
 
 		//Location attack
+		if (currentLocation->party.availableMonsters()) {
+
+		
 		while (true) {
 			monNum = rand() % locationPartyPtr->size();
 			targetNum = rand() % playerPartyPtr->size();
@@ -87,6 +98,10 @@ bool attackCycle(Player* player, Location* currentLocation) {
 		}
 		if (locationStatus == 2) {
 			return false;
+		}
+		}
+		else {
+			cout << "\n---There are no enemy monsters that can attack! Turn skipped---\n";
 		}
 
 		player->party.partyDecreaseCooldown();

@@ -39,6 +39,7 @@ class Monster
 		int getAttack();
 		int getHp();
 		void decreaseCooldown();
+		int getCooldown();
 		int takeDamage(int attackValue);
 
 		// comparison operator for use with find(), returns true/false depending on the name of the monster you are comparing against

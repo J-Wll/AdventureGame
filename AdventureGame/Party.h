@@ -12,6 +12,8 @@ public:
 	vector<Monster>* getParty();
 	void setParty(vector<Monster> iParty);
 	void partyDecreaseCooldown();
+	// checks if there are monsters able to attack in the party
+	bool availableMonsters();
 };
 
 
