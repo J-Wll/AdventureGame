@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="Party">
+    <Position X="6.5" Y="0.75" Width="4.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAA4AIEAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Party.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Item">
+    <Position X="1.5" Y="3.5" Width="4.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAAAAAAAAAABAAAEAAQEAAAAQEAEAAAAAAA=</HashCode>
+      <FileName>Item.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Location">
+    <Position X="6.5" Y="3.5" Width="4.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAIAAAAEAAAMAAIABAAECABAAAA=</HashCode>
+      <FileName>Location.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Monster">
+    <Position X="11.5" Y="0.75" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>EAAwAAAAAAABAAAAABAAgQAgATAFAADEwgBEAAAAQAA=</HashCode>
+      <FileName>Monster.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Player">
+    <Position X="1.5" Y="0.75" Width="4.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAACgACAAAAAAAAAAAAAAAAAAEAAAAAAAEAQBAAAA=</HashCode>
+      <FileName>Player.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
