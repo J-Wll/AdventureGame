@@ -6,46 +6,60 @@
 // takes a location, iterates over the monsters at the location for combat
 // after combat, takes the item from that location
 
-void deathCheck(Monster* checking, vector<Monster>* partyPtr, int target) {
+int deathCheck(Monster* checking, vector<Monster>* partyPtr, int target, bool player = false) {
 	if (checking->getHp() <= 0) {
 		cout << "\n" << checking->getName() << " has died\n";
 		partyPtr->erase(partyPtr->begin() + target);
 	}
+	if (partyPtr->size() == 0) {
+		if (player) {
+			cout << "Defeated";
+			return 1;
+		}
+		else {
+			cout << "Victorious";
+			return 2;
+		}
+	}
+	return 0;
 }
 
 bool attackCycle(Player* player, Location* currentLocation) {
 	while (true) {
-
+		Monster* mon;
+		Monster* attacking;
+		int attacker;
+		int target;
 		vector<Monster>* playerPartyPtr = player->party.getParty();
 		vector<Monster>* locationPartyPtr = currentLocation->party.getParty();
 
-		//Inputs for attack
-		cout << "Which of your monsters should attack?, (Enter a whole number): ";
-		int attacker = player->getTarget(playerPartyPtr->size()) - 1;
-		cout << "Choose an enemy to target, (Enter a whole number): ";
-		int target = player->getTarget(locationPartyPtr->size()) - 1;
+		// Player attack
+		while (true) {
+			//Inputs for attack
+			cout << "Which of your monsters should attack?, (Enter a whole number): ";
+			attacker = player->getTarget(playerPartyPtr->size()) - 1;
+			cout << "Choose an enemy to target, (Enter a whole number): ";
+			target = player->getTarget(locationPartyPtr->size()) - 1;
 
-		//Getting the monster and what it is targeting
-		Monster* mon = &playerPartyPtr->at(attacker);
-		Monster* attacking = &locationPartyPtr->at(target);
+			//Getting the monster and what it is targeting
+			mon = &playerPartyPtr->at(attacker);
+			attacking = &locationPartyPtr->at(target);
 
-		//Attack and message
-		bool attackHappened = mon->attack(attacking);
-		if (!attackHappened) {
-			continue;
+			//Attack and message
+			bool attackHappened = mon->attack(attacking);
+			if (attackHappened) {
+				break;
+			}
 		}
 
 		//Check for death, remove from party and print message on death
-		deathCheck(attacking, locationPartyPtr, target);
-		deathCheck(mon, playerPartyPtr, attacker);
+		int playerStatus = deathCheck(mon, playerPartyPtr, attacker, true);
+		int locationStatus = deathCheck(attacking, locationPartyPtr, target);
 
-		if (playerPartyPtr->size() == 0) {
-			cout << "Defeated";
+		if (playerStatus == 1) {
 			return true;
 		}
-
-		if (locationPartyPtr->size() == 0) {
-			cout << "Victorious";
+		if (locationStatus == 2) {
 			return false;
 		}
 
