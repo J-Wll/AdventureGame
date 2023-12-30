@@ -27,9 +27,12 @@ int deathCheck(Monster* checking, vector<Monster>* partyPtr, int target, bool pl
 bool attackCycle(Player* player, Location* currentLocation) {
 	while (true) {
 		Monster* mon;
-		Monster* attacking;
-		int attacker;
-		int target;
+		Monster* target;
+		int monNum;
+		int targetNum;
+		int playerStatus;
+		int locationStatus;
+		bool attackHappened;
 		vector<Monster>* playerPartyPtr = player->party.getParty();
 		vector<Monster>* locationPartyPtr = currentLocation->party.getParty();
 
@@ -37,24 +40,47 @@ bool attackCycle(Player* player, Location* currentLocation) {
 		while (true) {
 			//Inputs for attack
 			cout << "Which of your monsters should attack?, (Enter a whole number): ";
-			attacker = player->getTarget(playerPartyPtr->size()) - 1;
+			monNum = player->getTarget(playerPartyPtr->size()) - 1;
 			cout << "Choose an enemy to target, (Enter a whole number): ";
-			target = player->getTarget(locationPartyPtr->size()) - 1;
+			targetNum = player->getTarget(locationPartyPtr->size()) - 1;
 
 			//Getting the monster and what it is targeting
-			mon = &playerPartyPtr->at(attacker);
-			attacking = &locationPartyPtr->at(target);
+			mon = &playerPartyPtr->at(monNum);
+			target = &locationPartyPtr->at(targetNum);
 
 			//Attack and message
-			bool attackHappened = mon->attack(attacking);
+			attackHappened = mon->attack(target, "Your ");
 			if (attackHappened) {
 				break;
 			}
 		}
 
 		//Check for death, remove from party and print message on death
-		int playerStatus = deathCheck(mon, playerPartyPtr, attacker, true);
-		int locationStatus = deathCheck(attacking, locationPartyPtr, target);
+		playerStatus = deathCheck(mon, playerPartyPtr, monNum, true);
+		locationStatus = deathCheck(target, locationPartyPtr, targetNum);
+
+		if (playerStatus == 1) {
+			return true;
+		}
+		if (locationStatus == 2) {
+			return false;
+		}
+
+		//Location attack
+		while (true) {
+			monNum = rand() % locationPartyPtr->size();
+			targetNum = rand() % playerPartyPtr->size();
+
+			mon = &locationPartyPtr->at(monNum);
+			target = &playerPartyPtr->at(targetNum);
+			attackHappened = mon->attack(target, "Enemy ");
+			if (attackHappened) {
+				break;
+			}
+		}
+
+		playerStatus = deathCheck(target, playerPartyPtr, targetNum, true);
+		locationStatus = deathCheck(mon, locationPartyPtr, monNum);
 
 		if (playerStatus == 1) {
 			return true;

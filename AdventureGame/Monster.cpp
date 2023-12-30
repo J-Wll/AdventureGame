@@ -67,7 +67,7 @@ void Monster::setEquipment(Item* item) {
 	itemCount += 1;
 }
 
-bool Monster::attack(Monster* attacking) {
+bool Monster::attack(Monster* attacking, string extraText) {
 	if (cooldown == 0) {
 		int attackValue = atk;
 		string enemyType = attacking->getType();
@@ -83,9 +83,9 @@ bool Monster::attack(Monster* attacking) {
 			effectiveAttack = "";
 		}
 		
-		cout << "\n" << name << " Attacks " << attacking->getName() <<
+		cout << "\n" << extraText << name << " Attacks " << attacking->getName() <<
 			" dealing " << attacking->takeDamage(attackValue) << " damage\n" << effectiveAttack;
-		cout << "\n" << name << " Takes " << takeDamage(attacking->getAttack() / 4) << " damage during the combat\n";
+		cout << "\n" << extraText << name << " Takes " << takeDamage(attacking->getAttack() / 4) << " damage during the combat\n";
 		//cooldown number is 1 higher than reality because it goes down right after the attack
 		cooldown += 2;
 		//attacked
