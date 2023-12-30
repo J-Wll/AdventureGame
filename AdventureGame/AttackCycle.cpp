@@ -71,7 +71,7 @@ bool attackCycle(Player* player, Location* currentLocation) {
 		}
 		// If no monsters to attack
 		else {
-			cout << "\n---You have no monsters that can attack! Turn skipped---\n";
+			cout << "\n---You have no monsters that can attack! Turn skipped---\n\n";
 		}
 
 		//Location attack
