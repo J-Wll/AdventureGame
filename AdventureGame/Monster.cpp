@@ -75,18 +75,14 @@ bool Monster::attack(Monster* attacking) {
 
 		if (type == "Fire" && enemyType == "Earth") {
 			attackValue *= 1.5;
-		}
-		else if (type == "Earth" && enemyType == "Water") {
+		} else if (type == "Earth" && enemyType == "Water") {
 			attackValue *= 1.5;
-		}
-		else if (type == "Water" && enemyType == "Fire") {
+		} else if (type == "Water" && enemyType == "Fire") {
 			attackValue *= 1.5;
-		}
-		else {
+		} else {
 			effectiveAttack = "";
 		}
 		
-
 		cout << "\n" << name << " Attacks " << attacking->getName() <<
 			" dealing " << attacking->takeDamage(attackValue) << " damage\n" << effectiveAttack;
 		cout << "\n" << name << " Takes " << takeDamage(attacking->getAttack() / 4) << " damage during the combat\n";
@@ -96,7 +92,7 @@ bool Monster::attack(Monster* attacking) {
 		return true;
 	}
 	else {
-		cout << "\n\n" << name << " Is on cooldown\n\n";
+		cout << "\n" << name << " Is on cooldown\n\n";
 		//didn't attack
 		return false;
 	}
