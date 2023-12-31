@@ -31,6 +31,9 @@
     <Filter Include="Header Files\Resources">
       <UniqueIdentifier>{3587609b-5881-4549-a348-285b5529b905}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Header Implementations\Resources">
+      <UniqueIdentifier>{aee918da-d5d3-4734-a655-d250f13907ae}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -59,6 +62,9 @@
     </ClCompile>
     <ClCompile Include="Inventory.cpp">
       <Filter>Source Files\Header Implementations\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="ColourCodes.cpp">
+      <Filter>Source Files\Header Implementations\Resources</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -2,13 +2,16 @@
 #include "AttackCycle.h"
 #include "Location.h"
 #include "Player.h"
+#include "ColourCodes.h"
 
 // takes a location, iterates over the monsters at the location for combat
 // after combat, takes the item from that location
 
 int deathCheck(Monster* checking, vector<Monster>* partyPtr, int target, bool player = false) {
 	if (checking->getHp() <= 0) {
-		cout << "\n" << checking->getName() << " has died\n";
+		string extraText = player ? "Your " : "Enemy ";
+		string colour = player ? redColour : greenColour;
+		cout << "\n" << colour << extraText << checking->getName() << " has died\n" << defaultColour;
 		partyPtr->erase(partyPtr->begin() + target);
 	}
 	if (partyPtr->size() == 0) {
@@ -113,10 +116,6 @@ bool attackCycle(Player* player, Location* currentLocation) {
 		currentLocation->showMonsters();
 	}
 
-	//for(Monster mon : monsterParty){
-
-
-//}
 	currentLocation->party.monsterPartyInfo();
 }
 

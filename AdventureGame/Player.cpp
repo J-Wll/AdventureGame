@@ -17,7 +17,7 @@ string Player::getName() {
 }
 
 void Player::showPlayersParty() {
-	cout << "\Your party:";
+	cout << "\nYour party:";
 	party.monsterPartyInfo();
 }
 

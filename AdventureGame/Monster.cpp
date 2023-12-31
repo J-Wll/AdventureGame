@@ -1,5 +1,6 @@
 #include "Monster.h"
 #include "ColourCodes.h"
+#include "Item.h"
 
 #include <vector>
 #include <iostream>
