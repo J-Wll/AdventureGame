@@ -27,7 +27,7 @@ int main() {
     vector<Monster>* monsterListPointer = &globalMonsterList;
 
     cout << "\n---Overview---\n\n"<<
-        "Welcome to the tower of ???\n" <<
+        greenColour << "Welcome to the tower of ???\n" << defaultColour << 
         "In this game you will face 5 rounds of combat against groups of monsters as you climb the tower\n"<<
         "Each sucessfully completed round will grant you a reward and a full heal\n"<<
         "A boss resides at the top of the tower\n"<<
