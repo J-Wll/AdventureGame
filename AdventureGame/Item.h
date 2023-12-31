@@ -3,7 +3,7 @@
 
 using namespace std;
 
-// items could buff the whole party, equipment could buff an individual monsterd
+// items buff an individual monster and are equipped through methods inside the Monster class
 class Item {
 private:
 public:
@@ -16,7 +16,3 @@ public:
 	Item(string iName, string iRarity, int iItemHp, int iItemAtk, int iItemDef);
 	void info();
 };
-
-//class Equipment : public Item {
-//
-//};

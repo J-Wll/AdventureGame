@@ -106,8 +106,10 @@ int main() {
         Monster("Ignarius the Emberlord Dragon", "Fire", 75, 150, 75),
         Monster("Vortexia the Seaborn Dragon", "Water", 75, 75, 150),
         Monster("Stonewyrm the Terraforge Dragon", "Earth", 150, 75, 75),
-        Monster("Cyrax the Elder Dragon", "Neutral", 200, 200, 200)
+        Monster("Cyrax the Elder Dragon", "Neutral", 150, 150, 150)
     };
+    Item bossItem("Ring of Eternity", "Legendary", 50, 50 ,50);
+    ApexMonsters.at(3).setEquipment(&bossItem);
     towerApex->party.setParty(ApexMonsters);
     player->showPlayersParty();
     towerApex->showMonsters();
