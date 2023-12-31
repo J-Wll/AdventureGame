@@ -113,10 +113,10 @@ int main() {
         
         // Items only gained if not in the last section
         if (i != LOCATIONCOUNT - 1) {
-            cout << "\nYou find " << randomItem.getName() << " in " << currentLocation->getName() << "\n";
+            cout <<greenColour<<"\nYou find " << randomItem.getName() << " in " << currentLocation->getName() << defaultColour << "\n";
             randomItem.info();
             player->showPlayersParty();
-            cout << "Choose a monster to equip the item (Enter a whole number): ";
+            cout << "Choose a monster to equip the item: ";
             int target = player->getTarget(player->party.getParty()->size()) - 1;
             Monster* mon = &player->party.getParty()->at(target);
             mon->setEquipment(&randomItem);

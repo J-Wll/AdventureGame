@@ -45,9 +45,9 @@ bool attackCycle(Player* player, Location* currentLocation) {
 		if (player->party.availableMonsters()) {
 			while (true) {
 				//Inputs for attack
-				cout << "Which of your monsters should attack?, (Enter a whole number): ";
+				cout << "Which of your monsters should attack?: ";
 				monNum = player->getTarget(playerPartyPtr->size()) - 1;
-				cout << "Choose an enemy to target, (Enter a whole number): ";
+				cout << "Choose an enemy to target: ";
 				targetNum = player->getTarget(locationPartyPtr->size()) - 1;
 
 				//Getting the monster and what it is targeting
@@ -74,9 +74,10 @@ bool attackCycle(Player* player, Location* currentLocation) {
 			return false;
 		}
 		}
+
 		// If no monsters to attack
 		else {
-			cout << "\n---You have no monsters that can attack! Turn skipped---\n\n";
+			cout << redColour << "\n---You have no monsters that can attack! Turn skipped---\n\n" << defaultColour;
 		}
 
 		Sleep(STDSLEEPTIME);
@@ -107,7 +108,7 @@ bool attackCycle(Player* player, Location* currentLocation) {
 		}
 		}
 		else {
-			cout << "\n---There are no enemy monsters that can attack! Turn skipped---\n";
+			cout << greenColour << "\n---There are no enemy monsters that can attack! Turn skipped---\n"  << defaultColour;
 		}
 
 		player->party.partyDecreaseCooldown();

@@ -5,6 +5,7 @@
 
 #include "Party.h"
 #include "Player.h"
+#include "UtilityVariables.h"
 
 // 3 monsters, up to 9 items, lasts the whole game
 
@@ -17,7 +18,7 @@ string Player::getName() {
 }
 
 void Player::showPlayersParty() {
-	cout << "\nYour party:";
+	cout << greenColour << "\nYour party:" << defaultColour;
 	party.monsterPartyInfo();
 }
 
@@ -28,7 +29,7 @@ int Player::getTarget(int max) {
 	if (inp > max || inp < min) {
 		cin.clear();
 		cin.ignore(numeric_limits<streamsize>::max(), '\n');
-		cout << "Invalid input, enter again:\n";
+		cout << redColour << "Invalid input, enter again:\n" << defaultColour;
 		return getTarget(max);
 	}
 	return inp;
@@ -43,7 +44,7 @@ void Player::chooseMonsters(vector<Monster>* monsterListPointer) {
 	for (int i = 0; i < 3; i++) {
 		tempMonsters.setParty(party.monsterSubList(monsterListPointer));
 		tempMonsters.monsterPartyInfo();
-		cout << "Select a monster (Input Whole Number): ";
+		cout << "Select a monster: ";
 		int selected = getTarget(tempMonsters.getParty()->size()) - 1;
 		finalParty.push_back(tempMonsters.getParty()->at(selected));
 	}

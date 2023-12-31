@@ -2,6 +2,7 @@
 
 #include "Party.h"
 #include "Location.h"
+#include "UtilityVariables.h"
 
 using namespace std;
 
@@ -18,7 +19,7 @@ void Location::genMonsters(vector<Monster>* monsterListPointer) {
 }
 
 void Location::showMonsters() {
-	cout << "\nThe " << getName() << " Has the following monsters:";
+	cout << redColour << "\nThe " << getName() << " Has the following monsters:" << defaultColour;
 	party.monsterPartyInfo();
 }
 
