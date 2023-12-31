@@ -12,7 +12,7 @@ public:
 	string getName();
 	void genMonsters(vector<Monster>* monsterListPointer);
 	void showMonsters();
-	void enter();
+	void enter(string extraText = "");
 	void fail();
 	void finish();
 };

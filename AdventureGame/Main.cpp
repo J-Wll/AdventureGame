@@ -40,8 +40,8 @@ int main() {
 
     Player* player = new Player("Bob");
     player->chooseMonsters(monsterListPointer);
-    Item* testItem = new Item("testItem", "Common", 20, 40, 30);
-    player->party.getParty()->at(0).setEquipment(testItem);
+    Item* startItem = new Item("Traveler's Blessing", "Common", 25, 25, 25);
+    player->party.getParty()->at(0).setEquipment(startItem);
     int LOCATIONCOUNT = 5;
 
     // Main game loop
@@ -56,7 +56,7 @@ int main() {
         Item randomItem = globalItemList[randomNumItem];
         globalItemList.erase(globalItemList.begin() + randomNumItem);
 
-        currentLocation->enter();
+        currentLocation->enter("\nFloor: " + to_string(i+1));
         currentLocation->genMonsters(monsterListPointer);
 
         player->showPlayersParty();

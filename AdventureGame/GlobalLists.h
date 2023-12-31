@@ -26,7 +26,21 @@ vector<Monster> globalMonsterList = {
     Monster("Sea Serpent", "Water", 65, 55, 45),
     Monster("Stone Behemoth", "Earth", 70, 45, 65),
     Monster("Desert Scorpion", "Earth", 55, 30, 55),
-    Monster("Wicked Imp", "Neutral", 45, 55, 45)
+    Monster("Wicked Imp", "Neutral", 45, 55, 45),
+    Monster("Vampire Bat", "Neutral", 50, 60, 40),
+    Monster("Radiant Angel", "Neutral", 70, 70, 65),
+    Monster("Iron Gorgon", "Earth", 85, 55, 75),
+    Monster("Lunar Guardian", "Neutral", 55, 65, 65),
+    Monster("Frostwyrm", "Water", 70, 75, 60),
+    Monster("Coral Guardian", "Water", 65, 50, 60),
+    Monster("Silent Shade", "Neutral", 50, 65, 35),
+    Monster("Sandstorm Specter", "Earth", 70, 50, 55),
+    Monster("Ethereal Wanderer", "Neutral", 60, 65, 50),
+    Monster("Volcanic Drake", "Fire", 65, 60, 60),
+    Monster("Ancient Oak", "Earth", 70, 40, 60),
+    Monster("Crystal Guardian", "Neutral", 70, 60, 55),
+    Monster("Cerulean Spirit", "Water", 65, 70, 55),
+    Monster("Tidal Enchantress", "Water", 60, 65, 55)
 };
 
 //Global list of location names

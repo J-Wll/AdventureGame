@@ -54,13 +54,7 @@
     <ClCompile Include="Player.cpp">
       <Filter>Source Files\Header Implementations\Classes</Filter>
     </ClCompile>
-    <ClCompile Include="Tower.cpp">
-      <Filter>Source Files\Header Implementations\Classes</Filter>
-    </ClCompile>
     <ClCompile Include="Party.cpp">
-      <Filter>Source Files\Header Implementations\Classes</Filter>
-    </ClCompile>
-    <ClCompile Include="Inventory.cpp">
       <Filter>Source Files\Header Implementations\Classes</Filter>
     </ClCompile>
     <ClCompile Include="ColourCodes.cpp">

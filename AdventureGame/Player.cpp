@@ -36,9 +36,17 @@ int Player::getTarget(int max) {
 
 
 void Player::chooseMonsters(vector<Monster>* monsterListPointer) {
-	vector<Monster> tempMonsters = {};
+	vector<Monster> finalParty;
+	Party tempMonsters;
 	cout << "You will be presented with 3 choices, each with 3 options for your party, choose with 1/2/3\n";
-	tempMonsters = party.monsterSubList(monsterListPointer);
-	party.setParty(tempMonsters);
+	
+	for (int i = 0; i < 3; i++) {
+		tempMonsters.setParty(party.monsterSubList(monsterListPointer));
+		tempMonsters.monsterPartyInfo();
+		int selected = getTarget(tempMonsters.getParty()->size()) - 1;
+		finalParty.push_back(tempMonsters.getParty()->at(selected));
+	}
+
+	party.setParty(finalParty);
 };
 

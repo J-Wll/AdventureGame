@@ -22,8 +22,8 @@ void Location::showMonsters() {
 	party.monsterPartyInfo();
 }
 
-void Location::enter() {
-	cout << "\n---You proceed to The " << name << "---\n\n";
+void Location::enter(string extraText) {
+	cout << extraText << "\n---You proceed to The " << name << "---\n\n";
 }
 
 void Location::fail() {
