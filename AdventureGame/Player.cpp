@@ -43,6 +43,7 @@ void Player::chooseMonsters(vector<Monster>* monsterListPointer) {
 	for (int i = 0; i < 3; i++) {
 		tempMonsters.setParty(party.monsterSubList(monsterListPointer));
 		tempMonsters.monsterPartyInfo();
+		cout << "Select a monster (Input Whole Number): ";
 		int selected = getTarget(tempMonsters.getParty()->size()) - 1;
 		finalParty.push_back(tempMonsters.getParty()->at(selected));
 	}

@@ -2,7 +2,9 @@
 #include <cstdlib>
 #include <ctime>
 #include <algorithm>
+#include <iostream>
 #include <string>
+#include <windows.h>   
 
 #include "Monster.h"
 #include "Location.h"
@@ -18,6 +20,10 @@ int main() {
     using namespace std;
     //system("Color 1F");
     cout << "\033[1;97m";
+
+    //ms, used to make output less overwhelming
+    int STDSLEEPTIME = 1000;
+    int SMLSLEEPTIME = 300;
     
     //Pointer passed to sublist generation, removes selected monster from the global list to prevent duplicates
     vector<Monster>* monsterListPointer = &globalMonsterList;
@@ -40,7 +46,7 @@ int main() {
 
     Player* player = new Player("Bob");
     player->chooseMonsters(monsterListPointer);
-    Item* startItem = new Item("Traveler's Blessing", "Common", 25, 25, 25);
+    Item* startItem = new Item("Adventurers Blessing", "Common", 25, 25, 25);
     player->party.getParty()->at(0).setEquipment(startItem);
     int LOCATIONCOUNT = 5;
 
@@ -58,6 +64,8 @@ int main() {
 
         currentLocation->enter("\nFloor: " + to_string(i+1));
         currentLocation->genMonsters(monsterListPointer);
+
+        Sleep(STDSLEEPTIME);
 
         player->showPlayersParty();
         currentLocation->showMonsters();
@@ -93,5 +101,27 @@ int main() {
         }
     }
 
+    Location* towerApex = new Location("Tower Apex");
+    towerApex->enter();
+    vector<Monster> ApexMonsters = {
+        Monster("Ignarius the Emberlord Dragon", "Fire", 75, 150, 75),
+        Monster("Vortexia the Seaborn Dragon", "Water", 75, 75, 150),
+        Monster("Stonewyrm the Terraforge Dragon", "Earth", 150, 75, 75),
+        Monster("Cyrax the Elder Dragon", "Neutral", 200, 200, 200)
+    };
+    towerApex->party.setParty(ApexMonsters);
+    player->showPlayersParty();
+    towerApex->showMonsters();
+    bool defeated = attackCycle(player, towerApex);
+
+    if (defeated) {
+        // if player party gets wiped, fail message of location
+        towerApex->fail();
+    }
+    else {
+        towerApex->finish();
+    }
+
     cout << "Game over, thanks for playing";
+    Sleep(STDSLEEPTIME);
 }
