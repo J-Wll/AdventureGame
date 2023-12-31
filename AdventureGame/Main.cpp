@@ -2,8 +2,8 @@
 #include <cstdlib>
 #include <ctime>
 #include <algorithm>
-#include <iostream>
 #include <string>
+#include <iostream>
 #include <windows.h>   
 
 #include "Monster.h"
@@ -63,9 +63,9 @@ int main() {
         currentLocation->enter("\nFloor: " + to_string(i+1));
         currentLocation->genMonsters(monsterListPointer);
 
-        Sleep(STDSLEEPTIME);
-
+        Sleep(LRGSLEEPTIME);
         player->showPlayersParty();
+        Sleep(STDSLEEPTIME);
         currentLocation->showMonsters();
 
         // storing the original party to remove in combat changes afterwards(damage taking)
@@ -121,5 +121,5 @@ int main() {
     }
 
     cout << "Game over, thanks for playing";
-    Sleep(STDSLEEPTIME);
+    Sleep(LRGSLEEPTIME);
 }

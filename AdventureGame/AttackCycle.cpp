@@ -1,4 +1,6 @@
 #include <iostream>
+#include <windows.h>
+
 #include "AttackCycle.h"
 #include "Location.h"
 #include "Player.h"
@@ -77,6 +79,7 @@ bool attackCycle(Player* player, Location* currentLocation) {
 			cout << "\n---You have no monsters that can attack! Turn skipped---\n\n";
 		}
 
+		Sleep(STDSLEEPTIME);
 		//Location attack
 		if (currentLocation->party.availableMonsters()) {
 
@@ -110,9 +113,10 @@ bool attackCycle(Player* player, Location* currentLocation) {
 		player->party.partyDecreaseCooldown();
 		currentLocation->party.partyDecreaseCooldown();
 
-
+		Sleep(LRGSLEEPTIME);
 		//Display updated parties
 		player->showPlayersParty();
+		Sleep(SMLSLEEPTIME);
 		currentLocation->showMonsters();
 	}
 

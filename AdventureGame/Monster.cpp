@@ -5,6 +5,7 @@
 #include <vector>
 #include <iostream>
 #include <iomanip>
+#include <windows.h>   
 
 using namespace std;
 
@@ -30,7 +31,7 @@ void Monster::info(string opt = "") {
 }
 
 int Monster::takeDamage(int attackValue) {
-	int damageTaken = (attackValue / (def * 0.05));
+	int damageTaken = (attackValue / (def * 0.03));
 	if (damageTaken <= 0) {
 		return 0;
 	}
@@ -95,6 +96,7 @@ bool Monster::attack(Monster* attacking, bool playerAttack) {
 		
 		cout << colour1 << "\n" << extraText << name << " Attacks " << attacking->getName() <<
 			" dealing " << attacking->takeDamage(attackValue) << " damage" << effectiveAttack;
+		Sleep(SMLSLEEPTIME);
 		cout << colour2 << "\n" << extraText << name << " Takes " << takeDamage(attacking->getAttack() / 4) << " damage during the combat\n\n" << defaultColour;
 		//cooldown number is 1 higher than reality because it goes down right after the attack
 		cooldown += 2;
@@ -102,7 +104,9 @@ bool Monster::attack(Monster* attacking, bool playerAttack) {
 		return true;
 	}
 	else {
-		cout << "\n" << name << " Is on cooldown\n\n";
+		if (playerAttack) {
+			cout << "\n" << name << " Is on cooldown\n\n";
+		}
 		//didn't attack
 		return false;
 	}
