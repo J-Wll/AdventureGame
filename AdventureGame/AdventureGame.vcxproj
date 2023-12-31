@@ -139,13 +139,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AttackCycle.h" />
+    <ClInclude Include="ColourCodes.h" />
     <ClInclude Include="GlobalLists.h" />
-    <ClInclude Include="Inventory.h" />
     <ClInclude Include="Location.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="Party.h" />
     <ClInclude Include="Player.h" />
-    <ClInclude Include="Tower.h" />
     <ClInclude Include="Monster.h" />
   </ItemGroup>
   <ItemGroup>
