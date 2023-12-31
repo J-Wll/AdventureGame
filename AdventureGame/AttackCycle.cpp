@@ -2,7 +2,7 @@
 #include "AttackCycle.h"
 #include "Location.h"
 #include "Player.h"
-#include "ColourCodes.h"
+#include "UtilityVariables.h"
 
 // takes a location, iterates over the monsters at the location for combat
 // after combat, takes the item from that location

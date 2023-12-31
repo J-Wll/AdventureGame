@@ -128,7 +128,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AttackCycle.cpp" />
-    <ClCompile Include="ColourCodes.cpp" />
+    <ClCompile Include="UtilityVariables.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="Location.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -138,7 +138,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AttackCycle.h" />
-    <ClInclude Include="ColourCodes.h" />
+    <ClInclude Include="UtilityVariables.h" />
     <ClInclude Include="GlobalLists.h" />
     <ClInclude Include="Location.h" />
     <ClInclude Include="Item.h" />

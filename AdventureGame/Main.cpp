@@ -15,15 +15,13 @@
 
 // Declares large lists of possible Monsters, Location names and items
 #include "GlobalLists.h"
+// Colour codes, sleep timers
+#include "UtilityVariables.h"
 
 int main() {
     using namespace std;
     //system("Color 1F");
-    cout << "\033[1;97m";
-
-    //ms, used to make output less overwhelming
-    int STDSLEEPTIME = 1000;
-    int SMLSLEEPTIME = 300;
+    cout << defaultColour;
     
     //Pointer passed to sublist generation, removes selected monster from the global list to prevent duplicates
     vector<Monster>* monsterListPointer = &globalMonsterList;

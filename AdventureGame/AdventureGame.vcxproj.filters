@@ -57,7 +57,7 @@
     <ClCompile Include="Party.cpp">
       <Filter>Source Files\Header Implementations\Classes</Filter>
     </ClCompile>
-    <ClCompile Include="ColourCodes.cpp">
+    <ClCompile Include="UtilityVariables.cpp">
       <Filter>Source Files\Header Implementations\Resources</Filter>
     </ClCompile>
   </ItemGroup>
@@ -83,7 +83,7 @@
     <ClInclude Include="GlobalLists.h">
       <Filter>Header Files\Resources</Filter>
     </ClInclude>
-    <ClInclude Include="ColourCodes.h">
+    <ClInclude Include="UtilityVariables.h">
       <Filter>Header Files\Resources</Filter>
     </ClInclude>
   </ItemGroup>
