@@ -24,9 +24,9 @@ void Monster::info(string opt = "") {
 		cooldownText = "\n---ON COOLDOWN FOR "  + to_string(cooldown) + " TURNS---";
 	}
 	cout << "\n---\n" << opt 
-		<< setw(5) << left << "Name: " << setw(23) << left << name << " |  Type: " << type 
+		<< setw(5) << left << "Name: " << setw(34) << left << name << " |  Type: " << type 
 		<< "\nStats: HP: " << setw(3) << left << hp << " ATK: " << setw(3)
-		<< left << atk << " DEF: " << setw(3) << left << def << " |  Equipped: " << equipped
+		<< left << atk << " DEF: " << setw(14) << left << def << " |  Equipped: " << equipped
 		<< cooldownText;
 }
 

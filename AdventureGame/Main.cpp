@@ -47,21 +47,41 @@ int main() {
     Item* startItem = new Item("Adventurers Blessing", "Common", 25, 25, 25);
     player->party.getParty()->at(0).setEquipment(startItem);
     int LOCATIONCOUNT = 5;
+    // 1 extra for the boss floor
+    LOCATIONCOUNT += 1;
+    Location* currentLocation;
 
     // Main game loop
     for (int i = 0; i < LOCATIONCOUNT; i++) {
-        // selects a random name for a location and removes it from the global list
-        int randomNumLocation = rand() % globalLocationNamesList.size();
-        string randomLocationName = globalLocationNamesList[randomNumLocation];
-        globalLocationNamesList.erase(globalLocationNamesList.begin() + randomNumLocation);
-        Location* currentLocation = new Location(randomLocationName);
+        // If on the final floor
+        if (i == LOCATIONCOUNT - 1) {
+            currentLocation = new Location("Tower Apex");
+            vector<Monster> ApexMonsters = {
+                Monster("Ignarius the Emberlord Dragon", "Fire", 75, 150, 75),
+                Monster("Vortexia the Seaborn Dragon", "Water", 75, 75, 150),
+                Monster("Stonewyrm the Terraforge Dragon", "Earth", 150, 75, 75),
+                Monster("Cyrax the Elder Dragon", "Neutral", 150, 150, 150)
+            };
+            Item bossItem("Ring of Eternity", "Legendary", 50, 50, 50);
+            ApexMonsters.at(3).setEquipment(&bossItem);
+            currentLocation->party.setParty(ApexMonsters);
+        }
+        //Every non final floor
+        else {
+            // selects a random name for a location and removes it from the global list
+            int randomNumLocation = rand() % globalLocationNamesList.size();
+            string randomLocationName = globalLocationNamesList[randomNumLocation];
+            globalLocationNamesList.erase(globalLocationNamesList.begin() + randomNumLocation);
+            currentLocation = new Location(randomLocationName);
+            currentLocation->genMonsters(monsterListPointer);
+        }
+
 
         int randomNumItem = rand() % globalItemList.size();
         Item randomItem = globalItemList[randomNumItem];
         globalItemList.erase(globalItemList.begin() + randomNumItem);
 
         currentLocation->enter("\nFloor: " + to_string(i+1));
-        currentLocation->genMonsters(monsterListPointer);
 
         Sleep(LRGSLEEPTIME);
         player->showPlayersParty();
@@ -88,7 +108,7 @@ int main() {
 
         
         // Items only gained if not in the last section
-        if (i != LOCATIONCOUNT) {
+        if (i != LOCATIONCOUNT - 1) {
             cout << "\nYou find " << randomItem.getName() << " in " << currentLocation->getName() << "\n";
             randomItem.info();
             player->showPlayersParty();
@@ -98,29 +118,6 @@ int main() {
             mon->setEquipment(&randomItem);
 
         }
-    }
-
-    Location* towerApex = new Location("Tower Apex");
-    towerApex->enter();
-    vector<Monster> ApexMonsters = {
-        Monster("Ignarius the Emberlord Dragon", "Fire", 75, 150, 75),
-        Monster("Vortexia the Seaborn Dragon", "Water", 75, 75, 150),
-        Monster("Stonewyrm the Terraforge Dragon", "Earth", 150, 75, 75),
-        Monster("Cyrax the Elder Dragon", "Neutral", 150, 150, 150)
-    };
-    Item bossItem("Ring of Eternity", "Legendary", 50, 50 ,50);
-    ApexMonsters.at(3).setEquipment(&bossItem);
-    towerApex->party.setParty(ApexMonsters);
-    player->showPlayersParty();
-    towerApex->showMonsters();
-    bool defeated = attackCycle(player, towerApex);
-
-    if (defeated) {
-        // if player party gets wiped, fail message of location
-        towerApex->fail();
-    }
-    else {
-        towerApex->finish();
     }
 
     cout << "Game over, thanks for playing";
