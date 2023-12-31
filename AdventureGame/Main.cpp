@@ -26,16 +26,20 @@ int main() {
     //Pointer passed to sublist generation, removes selected monster from the global list to prevent duplicates
     vector<Monster>* monsterListPointer = &globalMonsterList;
 
-    cout << "\n---Overview---\n\n"<<
-        greenColour << "Welcome to the tower of ???\n" << defaultColour << 
-        "In this game you will face 5 rounds of combat against groups of monsters as you climb the tower\n"<<
-        "Each sucessfully completed round will grant you a reward and a full heal\n"<<
-        "A boss resides at the top of the tower\n"<<
+    cout << "\n---Overview---\n\n" <<
+        greenColour << "Welcome to the Umbraxis tower\n" << defaultColour <<
+        "In this game you will face 5 rounds of combat against groups of monsters as you climb the tower\n" <<
+        "Each sucessfully completed round will grant you a reward and a full heal\n" <<
+        "A group of evil dragons resides at the top of the tower\n";
+    Sleep(STDSLEEPTIME);
+    cout <<
         "\n---Combat info---\n\n"
         "Fire types are effective against earth, earth against water and water against fire\n"<<
         "Neutral types are equally effective against all types\n"<<
         "During combat, the monster you select will attack an enemy\n"<<
-        "While delivering the attack they will receive damage equal to 1/4 of the attack of the opponent (Regardless of type)\n"<<
+        "While delivering the attack they will receive damage equal to 1/4 of the attack of the opponent (Regardless of type)\n";
+    Sleep(STDSLEEPTIME);
+    cout <<
         "\n---Start---\n\n"<<
         "Lets build the team you'll use to climb this tower:\n\n";
 
