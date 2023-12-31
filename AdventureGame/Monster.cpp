@@ -67,11 +67,23 @@ void Monster::setEquipment(Item* item) {
 	itemCount += 1;
 }
 
-bool Monster::attack(Monster* attacking, string extraText) {
+bool Monster::attack(Monster* attacking, bool playerAttack) {
+	string extraText = "Enemy ";
+	// https://learn.microsoft.com/en-us/windows/console/console-virtual-terminal-sequences
+	string redColour = "\033[1;91m";
+	string greenColour = "\033[1;92m";
+	string resetColour = "\033[1;97m";
+	string colour1 = redColour;
+	string colour2 = greenColour;
+	if (playerAttack) {
+		extraText = "Your ";
+		colour1 = greenColour;
+		colour2 = redColour;
+	}
 	if (cooldown == 0) {
 		int attackValue = atk;
 		string enemyType = attacking->getType();
-		string effectiveAttack = "The attack was super effective!\n";
+		string effectiveAttack = "\nThe attack was super effective!";
 
 		if (type == "Fire" && enemyType == "Earth") {
 			attackValue *= 1.5;
@@ -83,9 +95,9 @@ bool Monster::attack(Monster* attacking, string extraText) {
 			effectiveAttack = "";
 		}
 		
-		cout << "\n" << extraText << name << " Attacks " << attacking->getName() <<
-			" dealing " << attacking->takeDamage(attackValue) << " damage\n" << effectiveAttack;
-		cout << "\n" << extraText << name << " Takes " << takeDamage(attacking->getAttack() / 4) << " damage during the combat\n";
+		cout << colour1 << "\n" << extraText << name << " Attacks " << attacking->getName() <<
+			" dealing " << attacking->takeDamage(attackValue) << " damage" << effectiveAttack;
+		cout << colour2 << "\n" << extraText << name << " Takes " << takeDamage(attacking->getAttack() / 4) << " damage during the combat\n\n" << resetColour;
 		//cooldown number is 1 higher than reality because it goes down right after the attack
 		cooldown += 2;
 		//attacked

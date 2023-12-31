@@ -16,11 +16,13 @@
 
 int main() {
     using namespace std;
+    //system("Color 1F");
+    cout << "\033[1;97m";
     
     //Pointer passed to sublist generation, removes selected monster from the global list to prevent duplicates
     vector<Monster>* monsterListPointer = &globalMonsterList;
 
-    cout << "---Overview---\n\n"<<
+    cout << "\n---Overview---\n\n"<<
         "Welcome to the tower of ???\n" <<
         "In this game you will face 5 rounds of combat against groups of monsters as you climb the tower\n"<<
         "Each sucessfully completed round will grant you a reward and a full heal\n"<<

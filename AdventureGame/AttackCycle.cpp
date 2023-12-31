@@ -50,7 +50,7 @@ bool attackCycle(Player* player, Location* currentLocation) {
 				target = &locationPartyPtr->at(targetNum);
 
 				//Attack and message
-				attackHappened = mon->attack(target, "Your ");
+				attackHappened = mon->attack(target, true);
 				if (attackHappened) {
 					break;
 				}
@@ -84,7 +84,7 @@ bool attackCycle(Player* player, Location* currentLocation) {
 
 			mon = &locationPartyPtr->at(monNum);
 			target = &playerPartyPtr->at(targetNum);
-			attackHappened = mon->attack(target, "Enemy ");
+			attackHappened = mon->attack(target);
 			if (attackHappened) {
 				break;
 			}
