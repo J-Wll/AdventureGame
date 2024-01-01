@@ -1,10 +1,11 @@
-#include <vector>
 #include <cstdlib>
 #include <ctime>
-#include <algorithm>
-#include <string>
 #include <iostream>
-#include <windows.h>   
+#include <windows.h>  
+
+//#include <algorithm>
+//#include <vector>
+//#include <algorithm>
 
 // Combat cycle for a location
 #include "AttackCycle.h"
