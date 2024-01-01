@@ -31,7 +31,8 @@ void Monster::info(string opt = "") {
 }
 
 int Monster::takeDamage(int attackValue) {
-	int damageTaken = (attackValue / (def * 0.03));
+	// Damage formula scales so that low def monsters do not take an insane amount of damage, and high defence monsters are not undefeatable
+	int damageTaken = (attackValue / ((def + 50) * 0.022)) + 1;
 	if (damageTaken <= 0) {
 		return 0;
 	}
