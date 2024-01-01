@@ -12,6 +12,14 @@
 // Colour codes, sleep timers
 #include "UtilityVariables.h"
 
+Item getRandomItem() {
+    int randomNumItem = rand() % globalItemList.size();
+    Item randomItem = globalItemList[randomNumItem];
+    globalItemList.erase(globalItemList.begin() + randomNumItem);
+
+    return randomItem;
+}
+
 void gameLoop() {
     using namespace std;
     //Pointer passed to sublist generation, removes selected monster from the global list to prevent duplicates
@@ -49,12 +57,15 @@ void gameLoop() {
             globalLocationNamesList.erase(globalLocationNamesList.begin() + randomNumLocation);
             currentLocation = new Location(randomLocationName);
             currentLocation->genMonsters(monsterListPointer);
+
+            // After first round, enemy party has a random item
+            if (i > 0) {
+                Item enemyItem = getRandomItem();
+                // Equip item to random monster in party
+                currentLocation->party.getParty()->at(rand() % currentLocation->party.getParty()->size()).setEquipment(&enemyItem);
+            }
         }
 
-
-        int randomNumItem = rand() % globalItemList.size();
-        Item randomItem = globalItemList[randomNumItem];
-        globalItemList.erase(globalItemList.begin() + randomNumItem);
 
         currentLocation->enter("\nFloor: " + to_string(i + 1));
 
@@ -84,13 +95,14 @@ void gameLoop() {
 
         // Items only gained if not in the last section
         if (i != LOCATIONCOUNT - 1) {
-            cout << greenColour << "\nYou find " << randomItem.getName() << " in " << currentLocation->getName() << defaultColour << "\n";
-            randomItem.info();
+            Item itemDrop = getRandomItem();
+            cout << greenColour << "\nYou find " << itemDrop.getName() << " in " << currentLocation->getName() << defaultColour << "\n";
+            itemDrop.info();
             player->showPlayersParty();
             cout << "Choose a monster to equip the item: ";
             int target = player->getTarget(player->party.getParty()->size()) - 1;
             Monster* mon = &player->party.getParty()->at(target);
-            mon->setEquipment(&randomItem);
+            mon->setEquipment(&itemDrop);
 
         }
         //After defeating the final boss
