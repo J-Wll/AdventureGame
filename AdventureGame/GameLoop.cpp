@@ -93,5 +93,9 @@ void gameLoop() {
             mon->setEquipment(&randomItem);
 
         }
+        //After defeating the final boss
+        else{
+            cout << "\n\n---You have vanquished the evil of tower and earned your place in time immemorial---\n\n";
+        }
     }
 }
