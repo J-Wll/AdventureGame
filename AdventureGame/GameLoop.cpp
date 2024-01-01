@@ -115,5 +115,7 @@ void gameLoop() {
         else{
             cout << "\n\n---You have vanquished the evil of tower and earned your place in time immemorial---\n\n";
         }
+
+        delete currentLocation;
     }
 }

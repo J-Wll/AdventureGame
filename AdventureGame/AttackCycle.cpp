@@ -34,6 +34,7 @@ bool attackCycle(shared_ptr<Player> player, Location* currentLocation) {
 		vector<Monster>* locationPartyPtr = currentLocation->party.getParty();
 
 		// Player attack
+		// If monsters available
 		if (player->party.availableMonsters()) {
 			while (true) {
 				// Inputs for attack
