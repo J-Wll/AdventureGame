@@ -14,12 +14,7 @@ int deathCheck(Monster* checking, vector<Monster>* partyPtr, int target, bool pl
 		partyPtr->erase(partyPtr->begin() + target);
 	}
 	if (partyPtr->size() == 0) {
-		if (player) {
-			return 1;
-		}
-		else {
-			return 2;
-		}
+		return player ? 1 : 2;
 	}
 	return 0;
 }
