@@ -41,4 +41,5 @@ int main() {
 
     cout << "Game over, thanks for playing";
     Sleep(LRGSLEEPTIME);
+    Sleep(3000);
 }

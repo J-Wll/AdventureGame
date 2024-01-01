@@ -63,6 +63,9 @@
     <ClCompile Include="GameLoop.cpp">
       <Filter>Source Files\Header Implementations\Game Functions</Filter>
     </ClCompile>
+    <ClCompile Include="GlobalLists.cpp">
+      <Filter>Source Files\Header Implementations\Resources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AttackCycle.h">

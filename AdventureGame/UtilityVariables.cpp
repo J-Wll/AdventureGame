@@ -9,6 +9,7 @@ std::string defaultColour = "\033[1;97m";
 int STDSLEEPTIME = 1000;
 int SMLSLEEPTIME = 300;
 int LRGSLEEPTIME = 2000;
+
 //testing values (shorter time so script can play through quickly)
 /*int STDSLEEPTIME = 1;
 int SMLSLEEPTIME = 1;
