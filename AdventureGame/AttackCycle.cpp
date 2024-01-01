@@ -15,11 +15,9 @@ int deathCheck(Monster* checking, vector<Monster>* partyPtr, int target, bool pl
 	}
 	if (partyPtr->size() == 0) {
 		if (player) {
-			cout << "Defeated";
 			return 1;
 		}
 		else {
-			cout << "Victorious";
 			return 2;
 		}
 	}
