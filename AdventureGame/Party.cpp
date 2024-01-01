@@ -5,8 +5,9 @@
 #include <algorithm>
 #include <string>
 
-#include "Party.h";
-#include "Monster.h";
+#include "Party.h"
+#include "Monster.h"
+ 
 using namespace std;
 
 vector<Monster> monsterParty = {};
