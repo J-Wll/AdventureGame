@@ -76,7 +76,6 @@ void gameLoop() {
 
         Sleep(LRGSLEEPTIME);
         player->showPlayersParty();
-        Sleep(STDSLEEPTIME);
         currentLocation->showMonsters();
 
         // Storing the original party to remove in combat changes afterwards(damage taking)

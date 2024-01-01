@@ -10,7 +10,7 @@ int deathCheck(Monster* checking, vector<Monster>* partyPtr, int target, bool pl
 	if (checking->getHp() <= 0) {
 		string extraText = player ? "Your " : "Enemy ";
 		string colour = player ? redColour : greenColour;
-		cout << "\n" << colour << extraText << checking->getName() << " has died\n" << defaultColour;
+		cout << "\n" << colour << extraText << checking->getName() << " has died\n\n" << defaultColour;
 		partyPtr->erase(partyPtr->begin() + target);
 	}
 	if (partyPtr->size() == 0) {

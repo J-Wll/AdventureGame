@@ -35,6 +35,7 @@ int main() {
     cout <<
         "\n---Start---\n\n"<<
         "Lets build the team you'll use to climb this tower:\n\n";
+    Sleep(STDSLEEPTIME);
 
     // Seeded in main to prevent error
     srand(time(NULL));

@@ -106,7 +106,7 @@ bool Monster::attack(Monster* attacking, bool playerAttack) {
 	}
 	else {
 		if (playerAttack) {
-			cout << "\n" << name << " Is on cooldown\n\n";
+			cout << redColour << "\n" << name << " Is on cooldown\n\n" << defaultColour;
 		}
 		// Didn't attack
 		return false;
