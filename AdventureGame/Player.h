@@ -2,7 +2,6 @@
 
 #include "Party.h"
 
-// 3 monsters, up to 9 items, lasts the whole game
 class Player {
 private:
 	string name;

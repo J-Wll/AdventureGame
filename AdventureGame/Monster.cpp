@@ -98,16 +98,16 @@ bool Monster::attack(Monster* attacking, bool playerAttack) {
 			" dealing " << attacking->takeDamage(attackValue) << " damage" << effectiveAttack;
 		Sleep(SMLSLEEPTIME);
 		cout << colour2 << "\n" << extraText << name << " Takes " << takeDamage(attacking->getAttack() / 4) << " damage during the combat\n\n" << defaultColour;
-		//cooldown number is 1 higher than reality because it goes down right after the attack
+		// Cooldown number is 1 higher than reality because it goes down right after the attack
 		cooldown += 2;
-		//attacked
+		// Attacked
 		return true;
 	}
 	else {
 		if (playerAttack) {
 			cout << "\n" << name << " Is on cooldown\n\n";
 		}
-		//didn't attack
+		// Didn't attack
 		return false;
 	}
 }

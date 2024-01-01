@@ -2,7 +2,6 @@
 
 #include "Party.h"
 
-// always 3 monsters 1 item, limited lifespan?
 class Location {
 private:
 	string name;

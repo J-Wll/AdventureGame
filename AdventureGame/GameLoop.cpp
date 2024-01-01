@@ -22,7 +22,7 @@ Item getRandomItem() {
 
 Location* getRandomLocation(vector<Monster>* monsterListPointer, int currentRound) {
     Location* currentLocation;
-    // selects a random name for a location and removes it from the global list
+    // Selects a random name for a location and removes it from the global list
     int randomNumLocation = rand() % globalLocationNamesList.size();
     string randomLocationName = globalLocationNamesList[randomNumLocation];
     globalLocationNamesList.erase(globalLocationNamesList.begin() + randomNumLocation);
@@ -40,7 +40,7 @@ Location* getRandomLocation(vector<Monster>* monsterListPointer, int currentRoun
 
 void gameLoop() {
     using namespace std;
-    //Pointer passed to sublist generation, removes selected monster from the global list to prevent duplicates
+    // Pointer passed to sublist generation, removes selected monster from the global list to prevent duplicates
     vector<Monster>* monsterListPointer = &globalMonsterList;
 
     Player* player = new Player("Bob");
@@ -67,11 +67,10 @@ void gameLoop() {
             ApexMonsters.at(3).setEquipment(&bossItem);
             currentLocation->party.setParty(ApexMonsters);
         }
-        //Every non final floor gets randomised monsters
+        // Every non final floor gets randomised monsters
         else {
             currentLocation = getRandomLocation(monsterListPointer, currentRound);
         }
-
 
         currentLocation->enter("\nFloor: " + to_string(currentRound + 1));
 
@@ -80,14 +79,14 @@ void gameLoop() {
         Sleep(STDSLEEPTIME);
         currentLocation->showMonsters();
 
-        // storing the original party to remove in combat changes afterwards(damage taking)
+        // Storing the original party to remove in combat changes afterwards(damage taking)
         vector<Monster> preCombatParty = *player->party.getParty();
 
-        // cycle of every player monster fighting every location monster (for testing), (final version in a loop with a location var that changes)
+        // Cycle of every player monster fighting every location monster (for testing), (final version in a loop with a location var that changes)
         bool defeated = attackCycle(player, currentLocation);
 
         if (defeated) {
-            // if player party gets wiped, fail message of location
+            // If player party gets wiped, fail message of location
             currentLocation->fail();
             break;
         }
@@ -95,7 +94,7 @@ void gameLoop() {
             currentLocation->finish();
         }
 
-        //Reset party
+        // Reset party
         player->party.setParty(preCombatParty);
 
 
@@ -111,7 +110,7 @@ void gameLoop() {
             mon->setEquipment(&itemDrop);
 
         }
-        //After defeating the final boss
+        // After defeating the final boss
         else{
             cout << "\n\n---You have vanquished the evil of tower and earned your place in time immemorial---\n\n";
         }

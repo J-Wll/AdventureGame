@@ -3,7 +3,7 @@
 
 using namespace std;
 
-// items buff an individual monster and are equipped through methods inside the Monster class
+// Items buff an individual monster and are equipped through methods inside the Monster class
 class Item {
 private:
 public:

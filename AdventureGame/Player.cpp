@@ -7,7 +7,6 @@
 #include "Player.h"
 #include "UtilityVariables.h"
 
-// 3 monsters, up to 9 items, lasts the whole game
 
 Player::Player(string iname) {
 	name = iname;

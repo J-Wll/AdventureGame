@@ -6,7 +6,7 @@
 extern std::string redColour;
 extern std::string greenColour;
 extern std::string defaultColour;
-//ms, used to make output less overwhelming
+// Ms, used to make output less overwhelming
 extern int STDSLEEPTIME;
 extern int SMLSLEEPTIME;
 extern int LRGSLEEPTIME;

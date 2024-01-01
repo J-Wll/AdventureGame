@@ -6,9 +6,6 @@
 #include "Player.h"
 #include "UtilityVariables.h"
 
-// takes a location, iterates over the monsters at the location for combat
-// after combat, takes the item from that location
-
 int deathCheck(Monster* checking, vector<Monster>* partyPtr, int target, bool player = false) {
 	if (checking->getHp() <= 0) {
 		string extraText = player ? "Your " : "Enemy ";
@@ -29,6 +26,8 @@ int deathCheck(Monster* checking, vector<Monster>* partyPtr, int target, bool pl
 	return 0;
 }
 
+// Takes a location, iterates over the monsters at the location for combat
+// After combat, takes the item from that location
 bool attackCycle(Player* player, Location* currentLocation) {
 	while (true) {
 		Monster* mon;
@@ -44,17 +43,17 @@ bool attackCycle(Player* player, Location* currentLocation) {
 		// Player attack
 		if (player->party.availableMonsters()) {
 			while (true) {
-				//Inputs for attack
+				// Inputs for attack
 				cout << "Which of your monsters should attack?: ";
 				monNum = player->getTarget(playerPartyPtr->size()) - 1;
 				cout << "Choose an enemy to target: ";
 				targetNum = player->getTarget(locationPartyPtr->size()) - 1;
 
-				//Getting the monster and what it is targeting
+				// Getting the monster and what it is targeting
 				mon = &playerPartyPtr->at(monNum);
 				target = &locationPartyPtr->at(targetNum);
 
-				//Attack and message
+				// Attack and message
 				attackHappened = mon->attack(target, true);
 				if (attackHappened) {
 					break;
@@ -63,7 +62,7 @@ bool attackCycle(Player* player, Location* currentLocation) {
 
 		
 
-		//Check for death, remove from party and print message on death
+		// Check for death, remove from party and print message on death
 		playerStatus = deathCheck(mon, playerPartyPtr, monNum, true);
 		locationStatus = deathCheck(target, locationPartyPtr, targetNum);
 
@@ -81,7 +80,7 @@ bool attackCycle(Player* player, Location* currentLocation) {
 		}
 
 		Sleep(STDSLEEPTIME);
-		//Location attack
+		// Location attack
 		if (currentLocation->party.availableMonsters()) {
 
 		
@@ -115,7 +114,7 @@ bool attackCycle(Player* player, Location* currentLocation) {
 		currentLocation->party.partyDecreaseCooldown();
 
 		Sleep(LRGSLEEPTIME);
-		//Display updated parties
+		// Display updated parties
 		player->showPlayersParty();
 		Sleep(SMLSLEEPTIME);
 		currentLocation->showMonsters();

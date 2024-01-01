@@ -6,16 +6,10 @@
 
 using namespace std;
 
-// monster class used for player and enemies, has type, attack, def, speed
-// moves based on type?
-// player picks their party at the start?
-// party size of 3?
-// class for attacks with sub classes for each attack?
-
 class Monster
 	{
 	private:
-		// name, type and stats of monster, stats have a maximum of 100 (before equipment)
+		// Name, type and stats of monster, stats have a maximum of 100 (before equipment)
 		string name;
 		string type;
 		int maxHp;
@@ -42,7 +36,7 @@ class Monster
 		int getCooldown();
 		int takeDamage(int attackValue);
 
-		// comparison operator for use with find(), returns true/false depending on the name of the monster you are comparing against
+		// Comparison operator for use with find(), returns true/false depending on the name of the monster you are comparing against
 		bool operator==(const Monster& compare);
 	};
 
