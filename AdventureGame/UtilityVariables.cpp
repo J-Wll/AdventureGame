@@ -1,4 +1,3 @@
-#pragma once
 #include <string>
 
 // https://learn.microsoft.com/en-us/windows/console/console-virtual-terminal-sequences

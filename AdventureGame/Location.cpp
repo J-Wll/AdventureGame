@@ -1,5 +1,3 @@
-#pragma once
-
 #include "Party.h"
 #include "Location.h"
 #include "UtilityVariables.h"
