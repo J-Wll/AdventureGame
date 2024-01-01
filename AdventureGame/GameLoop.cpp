@@ -54,6 +54,7 @@ void gameLoop() {
 
     // Main game loop
     for (int currentRound = 0; currentRound < LOCATIONCOUNT; currentRound++) {
+
         // If on the final floor, set the party to something specific
         if (currentRound == LOCATIONCOUNT - 1) {
             currentLocation = new Location("Tower Apex");

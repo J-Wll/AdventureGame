@@ -5,7 +5,8 @@
 std::string redColour = "\033[1;91m";
 std::string greenColour = "\033[1;92m";
 std::string defaultColour = "\033[1;97m";
-// Ms, used to make output less overwhelming
+
+// Ms, used with the Sleep function to make output less overwhelming
 /*int STDSLEEPTIME = 1000;
 int SMLSLEEPTIME = 300;
 int LRGSLEEPTIME = 2000;*/
