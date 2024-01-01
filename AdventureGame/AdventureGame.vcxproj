@@ -128,6 +128,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AttackCycle.cpp" />
+    <ClCompile Include="GameLoop.cpp" />
     <ClCompile Include="UtilityVariables.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="Location.cpp" />
@@ -138,6 +139,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AttackCycle.h" />
+    <ClInclude Include="GameLoop.h" />
     <ClInclude Include="UtilityVariables.h" />
     <ClInclude Include="GlobalLists.h" />
     <ClInclude Include="Location.h" />

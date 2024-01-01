@@ -60,6 +60,9 @@
     <ClCompile Include="UtilityVariables.cpp">
       <Filter>Source Files\Header Implementations\Resources</Filter>
     </ClCompile>
+    <ClCompile Include="GameLoop.cpp">
+      <Filter>Source Files\Header Implementations\Game Functions</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AttackCycle.h">
@@ -85,6 +88,9 @@
     </ClInclude>
     <ClInclude Include="UtilityVariables.h">
       <Filter>Header Files\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLoop.h">
+      <Filter>Header Files\Game Functions</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

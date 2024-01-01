@@ -9,7 +9,6 @@
 #include "Monster.h"
 #include "Location.h"
 #include "Player.h"
-#include "Tower.h"
 #include "Item.h"
 #include "AttackCycle.h"
 
@@ -57,7 +56,7 @@ int main() {
 
     // Main game loop
     for (int i = 0; i < LOCATIONCOUNT; i++) {
-        // If on the final floor
+        // If on the final floor, set the party to something specific
         if (i == LOCATIONCOUNT - 1) {
             currentLocation = new Location("Tower Apex");
             vector<Monster> ApexMonsters = {
@@ -70,7 +69,7 @@ int main() {
             ApexMonsters.at(3).setEquipment(&bossItem);
             currentLocation->party.setParty(ApexMonsters);
         }
-        //Every non final floor
+        //Every non final floor gets randomised monsters
         else {
             // selects a random name for a location and removes it from the global list
             int randomNumLocation = rand() % globalLocationNamesList.size();
