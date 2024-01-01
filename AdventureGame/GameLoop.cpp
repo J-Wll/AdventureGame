@@ -20,6 +20,24 @@ Item getRandomItem() {
     return randomItem;
 }
 
+Location* getRandomLocation(vector<Monster>* monsterListPointer, int currentRound) {
+    Location* currentLocation;
+    // selects a random name for a location and removes it from the global list
+    int randomNumLocation = rand() % globalLocationNamesList.size();
+    string randomLocationName = globalLocationNamesList[randomNumLocation];
+    globalLocationNamesList.erase(globalLocationNamesList.begin() + randomNumLocation);
+    currentLocation = new Location(randomLocationName);
+    currentLocation->genMonsters(monsterListPointer);
+
+    // After first round, enemy party has a random item
+    if (currentRound > 0) {
+        Item enemyItem = getRandomItem();
+        // Equip item to random monster in party
+        currentLocation->party.getParty()->at(rand() % currentLocation->party.getParty()->size()).setEquipment(&enemyItem);
+    }
+    return currentLocation;
+}
+
 void gameLoop() {
     using namespace std;
     //Pointer passed to sublist generation, removes selected monster from the global list to prevent duplicates
@@ -35,9 +53,9 @@ void gameLoop() {
     Location* currentLocation;
 
     // Main game loop
-    for (int i = 0; i < LOCATIONCOUNT; i++) {
+    for (int currentRound = 0; currentRound < LOCATIONCOUNT; currentRound++) {
         // If on the final floor, set the party to something specific
-        if (i == LOCATIONCOUNT - 1) {
+        if (currentRound == LOCATIONCOUNT - 1) {
             currentLocation = new Location("Tower Apex");
             vector<Monster> ApexMonsters = {
                 Monster("Ignarius the Emberlord Dragon", "Fire", 80, 125, 80),
@@ -51,23 +69,11 @@ void gameLoop() {
         }
         //Every non final floor gets randomised monsters
         else {
-            // selects a random name for a location and removes it from the global list
-            int randomNumLocation = rand() % globalLocationNamesList.size();
-            string randomLocationName = globalLocationNamesList[randomNumLocation];
-            globalLocationNamesList.erase(globalLocationNamesList.begin() + randomNumLocation);
-            currentLocation = new Location(randomLocationName);
-            currentLocation->genMonsters(monsterListPointer);
-
-            // After first round, enemy party has a random item
-            if (i > 0) {
-                Item enemyItem = getRandomItem();
-                // Equip item to random monster in party
-                currentLocation->party.getParty()->at(rand() % currentLocation->party.getParty()->size()).setEquipment(&enemyItem);
-            }
+            currentLocation = getRandomLocation(monsterListPointer, currentRound);
         }
 
 
-        currentLocation->enter("\nFloor: " + to_string(i + 1));
+        currentLocation->enter("\nFloor: " + to_string(currentRound + 1));
 
         Sleep(LRGSLEEPTIME);
         player->showPlayersParty();
@@ -94,7 +100,7 @@ void gameLoop() {
 
 
         // Items only gained if not in the last section
-        if (i != LOCATIONCOUNT - 1) {
+        if (currentRound != LOCATIONCOUNT - 1) {
             Item itemDrop = getRandomItem();
             cout << greenColour << "\nYou find " << itemDrop.getName() << " in " << currentLocation->getName() << defaultColour << "\n";
             itemDrop.info();
