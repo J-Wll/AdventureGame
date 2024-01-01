@@ -2,4 +2,4 @@
 #include "Location.h"
 #include "Player.h"
 
-bool attackCycle(Player* player, Location* currentLocation);
+bool attackCycle(shared_ptr<Player> player, Location* currentLocation);

@@ -58,15 +58,15 @@ string Monster::getName() { return name; };
 void Monster::setType(string in) { type = in; };
 string Monster::getType() { return type; };
 
-void Monster::setEquipment(Item* item) {
-	maxHp += item->itemHp;
-	hp += item->itemHp;
-	atk += item->itemAtk;
-	def += item->itemDef;
+void Monster::setEquipment(Item item) {
+	maxHp += item.itemHp;
+	hp += item.itemHp;
+	atk += item.itemAtk;
+	def += item.itemDef;
 	if (itemCount == 0) {
-		equipped = item->getName();
+		equipped = item.getName();
 	} else {
-		equipped += ", " + item->getName();
+		equipped += ", " + item.getName();
 	}
 	itemCount += 1;
 }

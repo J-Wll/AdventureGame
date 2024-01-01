@@ -27,7 +27,7 @@ class Monster
 		string getName();
 		void setType(string in);
 		string getType();
-		void setEquipment(Item* item);
+		void setEquipment(Item item);
 		bool attack(Monster* attacking, bool playerAttack = false);
 		void resetHealth();
 		int getAttack();

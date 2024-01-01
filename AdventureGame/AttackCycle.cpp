@@ -26,7 +26,7 @@ int deathCheck(Monster* checking, vector<Monster>* partyPtr, int target, bool pl
 
 // Takes a location, iterates over the monsters at the location for combat
 // After combat, takes the item from that location
-bool attackCycle(Player* player, Location* currentLocation) {
+bool attackCycle(shared_ptr<Player> player, Location* currentLocation) {
 	while (true) {
 		Monster* mon;
 		Monster* target;
