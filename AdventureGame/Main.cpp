@@ -6,7 +6,9 @@
 #include <iostream>
 #include <windows.h>   
 
+// Combat cycle for a location
 #include "AttackCycle.h"
+// Core gameplay loop
 #include "GameLoop.h"
 // Colour codes, sleep timers
 #include "UtilityVariables.h"
@@ -14,7 +16,6 @@
 
 int main() {
     using namespace std;
-    //system("Color 1F");
     cout << defaultColour;
 
     cout << "\n---Overview---\n\n" <<
@@ -34,9 +35,10 @@ int main() {
         "\n---Start---\n\n"<<
         "Lets build the team you'll use to climb this tower:\n\n";
 
-    // seeded in main to prevent error
+    // Seeded in main to prevent error
     srand(time(NULL));
 
+    // Core gameplay loop
     gameLoop();
 
     cout << "Game over, thanks for playing";
