@@ -40,9 +40,9 @@ void gameLoop() {
         if (i == LOCATIONCOUNT - 1) {
             currentLocation = new Location("Tower Apex");
             vector<Monster> ApexMonsters = {
-                Monster("Ignarius the Emberlord Dragon", "Fire", 75, 150, 75),
-                Monster("Vortexia the Seaborn Dragon", "Water", 75, 75, 150),
-                Monster("Stonewyrm the Terraforge Dragon", "Earth", 150, 75, 75),
+                Monster("Ignarius the Emberlord Dragon", "Fire", 80, 125, 80),
+                Monster("Vortexia the Seaborn Dragon", "Water", 80, 80, 125),
+                Monster("Stonewyrm the Terraforge Dragon", "Earth", 125, 80, 80),
                 Monster("Cyrax the Elder Dragon", "Neutral", 150, 150, 150)
             };
             Item bossItem("Ring of Eternity", "Legendary", 50, 50, 50);
