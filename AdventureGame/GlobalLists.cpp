@@ -4,11 +4,10 @@
 #include "Monster.h"
 #include "Item.h"
 
-
 // Global lists for monsters, items and locations. This allows for variety and each round to feel different. Elements are randomly selected from each list for use  
 // Global list of possible monsters
 // Name, Type, HP, ATK, DEF
-vector<Monster> globalMonsterList = {
+std::vector<Monster> globalMonsterList = {
     Monster("Wolf", "Neutral", 40, 70, 40),
     Monster("Shark", "Water", 50, 70, 40),
     Monster("Dragon", "Fire", 60, 75, 60),
@@ -51,7 +50,7 @@ vector<Monster> globalMonsterList = {
 };
 
 // Global list of location names
-vector<std::string> globalLocationNamesList = {
+std::vector<std::string> globalLocationNamesList = {
     "Howling Labyrinth",
     "Floor of Eternal Shadows",
     "Abyssal Nexus",
@@ -81,7 +80,7 @@ vector<std::string> globalLocationNamesList = {
 };
 
 // Global list of items that can show in locations
-vector<Item> globalItemList = {
+std::vector<Item> globalItemList = {
      Item("Power Gem", "Common", 20, 20, 0),
      Item("Abyssal Dagger", "Uncommon", 0, 40, 10),
      Item("Elixir of Vitality", "Rare", 50, 0, 0),

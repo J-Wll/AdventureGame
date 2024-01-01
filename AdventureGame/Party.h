@@ -5,13 +5,13 @@
 
 class Party {
 private:
-	vector<Monster> monsterParty = {};
+	std::vector<Monster> monsterParty = {};
 public:
 	// Calls the .info method on each monster in a passed in monster list, passes the current index to the info function which is display in the terminal
 	void monsterPartyInfo();
-	vector<Monster> monsterSubList(vector<Monster>* monsterListPointer);
-	vector<Monster>* getParty();
-	void setParty(vector<Monster> iParty);
+	std::vector<Monster> monsterSubList(std::vector<Monster>* monsterListPointer);
+	std::vector<Monster>* getParty();
+	void setParty(std::vector<Monster> iParty);
 	void partyDecreaseCooldown();
 	// Checks if there are monsters able to attack in the party
 	bool availableMonsters();

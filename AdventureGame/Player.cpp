@@ -5,6 +5,7 @@
 #include "Player.h"
 #include "UtilityVariables.h"
 
+using namespace std;
 
 Player::Player(string iname) {
 	name = iname;

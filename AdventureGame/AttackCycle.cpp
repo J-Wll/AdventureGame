@@ -6,6 +6,8 @@
 #include "Player.h"
 #include "UtilityVariables.h"
 
+using namespace std;
+
 int deathCheck(Monster* checking, vector<Monster>* partyPtr, int target, bool player = false) {
 	if (checking->getHp() <= 0) {
 		string extraText = player ? "Your " : "Enemy ";

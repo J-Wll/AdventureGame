@@ -12,6 +12,8 @@
 // Colour codes, sleep timers
 #include "UtilityVariables.h"
 
+using namespace std;
+
 Item getRandomItem() {
     int randomNumItem = rand() % globalItemList.size();
     Item randomItem = globalItemList[randomNumItem];

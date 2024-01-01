@@ -1,5 +1,7 @@
 #pragma once
+
 #include <string>
+
 #include "UtilityVariables.h"
 
 // colour codes for terminal output https://learn.microsoft.com/en-us/windows/console/console-virtual-terminal-sequences

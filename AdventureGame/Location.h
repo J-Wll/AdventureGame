@@ -4,14 +4,14 @@
 
 class Location {
 private:
-	string name;
+	std::string name;
 public:
 	Party party;
-	Location(string iname);
-	string getName();
-	void genMonsters(vector<Monster>* monsterListPointer);
+	Location(std::string iname);
+	std::string getName();
+	void genMonsters(std::vector<Monster>* monsterListPointer);
 	void showMonsters();
-	void enter(string extraText = "");
+	void enter(std::string extraText = "");
 	void fail();
 	void finish();
 };

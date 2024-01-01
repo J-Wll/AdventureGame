@@ -2,31 +2,30 @@
 
 #include <vector>
 #include <iostream>
-#include "Item.h"
 
-using namespace std;
+#include "Item.h"
 
 class Monster
 	{
 	private:
 		// Name, type and stats of monster, stats have a maximum of 100 (before equipment)
-		string name;
-		string type;
+		std::string name;
+		std::string type;
 		int maxHp;
 		int hp;
 		int atk;
 		int def;
-		string equipped = "None";
+		std::string equipped = "None";
 		int itemCount = 0;
 		int cooldown = 0;
 
 	public:
-		Monster(string iname, string itype, int iMaxHp=50, int iatk=50, int idef=50);
-		void info(string opt);
-		void setName(string in);
-		string getName();
-		void setType(string in);
-		string getType();
+		Monster(std::string iname, std::string itype, int iMaxHp=50, int iatk=50, int idef=50);
+		void info(std::string opt);
+		void setName(std::string in);
+		std::string getName();
+		void setType(std::string in);
+		std::string getType();
 		void setEquipment(Item item);
 		bool attack(Monster* attacking, bool playerAttack = false);
 		void resetHealth();

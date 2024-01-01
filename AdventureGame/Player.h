@@ -4,12 +4,12 @@
 
 class Player {
 private:
-	string name;
+	std::string name;
 public:
 	Party party;
-	Player(string iname);
-	string getName();
-	void chooseMonsters(vector<Monster>* monsterListPointer);
+	Player(std::string iname);
+	std::string getName();
+	void chooseMonsters(std::vector<Monster>* monsterListPointer);
 	void showPlayersParty();
 	int getTarget(int max = 3);
 };
