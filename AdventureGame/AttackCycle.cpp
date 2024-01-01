@@ -73,7 +73,6 @@ bool attackCycle(shared_ptr<Player> player, Location* currentLocation) {
 			cout << redColour << "\n---You have no monsters that can attack! Turn skipped---\n\n" << defaultColour;
 		}
 
-		Sleep(STDSLEEPTIME);
 		// Location attack
 		if (currentLocation->party.availableMonsters()) {
 
