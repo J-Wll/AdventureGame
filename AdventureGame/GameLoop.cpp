@@ -84,7 +84,6 @@ void gameLoop() {
         vector<Monster> preCombatParty = *player->party.getParty();
 
         // Cycle of every player monster fighting every location monster (for testing), (final version in a loop with a location var that changes)
-
         bool defeated = attackCycle(player, currentLocation);
 
         if (defeated) {

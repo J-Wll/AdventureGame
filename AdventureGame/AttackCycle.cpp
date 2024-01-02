@@ -12,7 +12,7 @@ int deathCheck(Monster* checking, vector<Monster>* partyPtr, int target, bool pl
 	if (checking->getHp() <= 0) {
 		string extraText = player ? "Your " : "Enemy ";
 		string colour = player ? redColour : greenColour;
-		cout << "\n" << colour << extraText << checking->getName() << " has died\n\n" << defaultColour;
+		cout << colour << extraText << checking->getName() << " has died\n" << defaultColour;
 		partyPtr->erase(partyPtr->begin() + target);
 	}
 	if (partyPtr->size() == 0) {
@@ -44,6 +44,8 @@ bool attackCycle(shared_ptr<Player> player, Location* currentLocation) {
 				monNum = player->getTarget(playerPartyPtr->size()) - 1;
 				cout << "Choose an enemy to target: ";
 				targetNum = player->getTarget(locationPartyPtr->size()) - 1;
+
+				cout << "\n";
 
 				// Getting the monster and what it is targeting
 				mon = &playerPartyPtr->at(monNum);
@@ -108,10 +110,9 @@ bool attackCycle(shared_ptr<Player> player, Location* currentLocation) {
 		player->party.partyDecreaseCooldown();
 		currentLocation->party.partyDecreaseCooldown();
 
-		Sleep(LRGSLEEPTIME);
+		Sleep(STDSLEEPTIME);
 		// Display updated parties
 		player->showPlayersParty();
-		Sleep(SMLSLEEPTIME);
 		currentLocation->showMonsters();
 	}
 
