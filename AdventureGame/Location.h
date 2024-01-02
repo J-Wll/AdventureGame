@@ -2,6 +2,7 @@
 
 #include "Party.h"
 
+// Locations the player fights through
 class Location {
 private:
 	std::string name;

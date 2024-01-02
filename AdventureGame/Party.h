@@ -1,8 +1,8 @@
 #pragma once
 
-// Stores Monsters and has relevant methods for Location and Player classes
 #include "Monster.h"
 
+// Stores Monsters and has relevant methods for Location and Player classes
 class Party {
 private:
 	std::vector<Monster> monsterParty = {};

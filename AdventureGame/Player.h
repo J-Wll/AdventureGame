@@ -2,6 +2,7 @@
 
 #include "Party.h"
 
+// Methods for the player and the players party
 class Player {
 public:
 	Party party;

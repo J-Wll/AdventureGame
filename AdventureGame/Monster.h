@@ -5,10 +5,11 @@
 
 #include "Item.h"
 
+// Monsters used for combat
 class Monster
 	{
 	private:
-		// Name, type and stats of monster, stats have a maximum of 100 (before equipment)
+		// Name, type and stats of monster
 		std::string name;
 		std::string type;
 		int maxHp;

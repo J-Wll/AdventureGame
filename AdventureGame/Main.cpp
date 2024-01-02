@@ -3,10 +3,6 @@
 #include <iostream>
 #include <windows.h>  
 
-//#include <algorithm>
-//#include <vector>
-//#include <algorithm>
-
 // Combat cycle for a location
 #include "AttackCycle.h"
 // Core gameplay loop

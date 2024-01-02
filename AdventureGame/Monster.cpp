@@ -128,6 +128,7 @@ void Monster::setEquipment(Item item) {
 
 }
 
+// Comparison operator for use with find(), returns true/false depending on the name of the monster you are comparing against
 bool Monster::operator==(const Monster& compare) {
 	return (name == compare.name);
 }
