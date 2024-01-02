@@ -15,6 +15,22 @@ string Item::getName() {
 	return name;
 }
 
+string Item::getRarity() {
+	return rarity;
+};
+
+int Item::getHp() {
+	return itemHp;
+};
+
+int Item::getAtk(){
+	return itemAtk;
+};
+
+int Item::getDef(){
+	return itemDef;
+};
+
 void Item::info() {
 	cout << "Name: " << name << ", Rarity: " << rarity
 		<< ", HP: " << itemHp << ", ATK: " << itemAtk

@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+<ClassDiagram MajorVersion="1" MinorVersion="1" GroupingSetting="Access" MembersFormat="FullSignature">
   <Class Name="Party">
     <Position X="6.5" Y="0.75" Width="4.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAIAAAAAAAAAAAAAA4AIEAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAIAAAAAAAAAAAAAA4AIEAAAAAAAAAAQAAAAAAAA=</HashCode>
       <FileName>Party.h</FileName>
     </TypeIdentifier>
   </Class>
@@ -24,7 +24,7 @@
   <Class Name="Monster">
     <Position X="11.5" Y="0.75" Width="4.25" />
     <TypeIdentifier>
-      <HashCode>EAAwAAAAAAABAAAAABAAgQAgATAFAADEwgBEAAAAQAA=</HashCode>
+      <HashCode>EAAwAAAAAAABAAAAABAAgQAgATAlAADEwgBEAAAAQAA=</HashCode>
       <FileName>Monster.h</FileName>
     </TypeIdentifier>
   </Class>

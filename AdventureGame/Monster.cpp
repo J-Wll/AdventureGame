@@ -59,16 +59,17 @@ void Monster::setType(string in) { type = in; };
 string Monster::getType() { return type; };
 
 void Monster::setEquipment(Item item) {
-	maxHp += item.itemHp;
-	hp += item.itemHp;
-	atk += item.itemAtk;
-	def += item.itemDef;
+	maxHp += item.getHp();
+	hp += item.getHp();
+	atk += item.getAtk();
+	def += item.getDef();
 	if (itemCount == 0) {
 		equipped = item.getName();
 	} else {
 		equipped += ", " + item.getName();
 	}
 	itemCount += 1;
+
 }
 
 bool Monster::attack(Monster* attacking, bool playerAttack) {
