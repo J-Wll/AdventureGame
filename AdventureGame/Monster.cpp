@@ -43,34 +43,6 @@ int Monster::takeDamage(int attackValue) {
 	return damageTaken;
 }
 
-int Monster::getHp() {
-	return hp;
-}
-
-int Monster::getAttack() {
-	int randomDmg = rand() % atk / 5;
-	return atk + randomDmg;
-}
-
-void Monster::setName(string in) { name = in; };
-string Monster::getName() { return name; };
-
-void Monster::setType(string in) { type = in; };
-string Monster::getType() { return type; };
-
-void Monster::setEquipment(Item item) {
-	maxHp += item.getHp();
-	hp += item.getHp();
-	atk += item.getAtk();
-	def += item.getDef();
-	if (itemCount == 0) {
-		equipped = item.getName();
-	} else {
-		equipped += ", " + item.getName();
-	}
-	itemCount += 1;
-
-}
 
 bool Monster::attack(Monster* attacking, bool playerAttack) {
 	string extraText = "Enemy ";
@@ -82,7 +54,7 @@ bool Monster::attack(Monster* attacking, bool playerAttack) {
 		colour2 = redColour;
 	}
 	if (cooldown == 0) {
-		int attackValue = atk;
+		int attackValue = getAttack();
 		string enemyType = attacking->getType();
 		string effectiveAttack = "\nThe attack was super effective!";
 
@@ -126,6 +98,34 @@ void Monster::resetHealth() {
 
 int Monster::getCooldown() {
 	return cooldown;
+}
+
+
+int Monster::getHp() {
+	return hp;
+}
+
+int Monster::getAttack() {
+	int randomDmg = rand() % (atk / 5);
+	return (atk + randomDmg);
+}
+
+string Monster::getName() { return name; };
+string Monster::getType() { return type; };
+
+void Monster::setEquipment(Item item) {
+	maxHp += item.getHp();
+	hp += item.getHp();
+	atk += item.getAtk();
+	def += item.getDef();
+	if (itemCount == 0) {
+		equipped = item.getName();
+	}
+	else {
+		equipped += ", " + item.getName();
+	}
+	itemCount += 1;
+
 }
 
 bool Monster::operator==(const Monster& compare) {

@@ -22,18 +22,16 @@ class Monster
 	public:
 		Monster(std::string iname, std::string itype, int iMaxHp=50, int iatk=50, int idef=50);
 		void info(std::string opt);
-		void setName(std::string in);
-		std::string getName();
-		void setType(std::string in);
-		std::string getType();
-		void setEquipment(Item item);
 		bool attack(Monster* attacking, bool playerAttack = false);
 		void resetHealth();
+		void decreaseCooldown();
+		int takeDamage(int attackValue);
+		void setEquipment(Item item);
+		std::string getType();
+		std::string getName();
+		int getCooldown();
 		int getAttack();
 		int getHp();
-		void decreaseCooldown();
-		int getCooldown();
-		int takeDamage(int attackValue);
 
 		// Comparison operator for use with find(), returns true/false depending on the name of the monster you are comparing against
 		bool operator==(const Monster& compare);

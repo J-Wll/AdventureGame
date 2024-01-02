@@ -45,7 +45,7 @@ void gameLoop() {
     // Pointer passed to sublist generation, removes selected monster from the global list to prevent duplicates
     vector<Monster>* monsterListPointer = &globalMonsterList;
 
-    shared_ptr<Player> player(new Player("Bob"));
+    shared_ptr<Player> player(new Player());
     player->chooseMonsters(monsterListPointer);
     player->party.getParty()->at(0).setEquipment(Item("Adventurers Blessing", "Common", 25, 25, 25));
     int LOCATIONCOUNT = 5;

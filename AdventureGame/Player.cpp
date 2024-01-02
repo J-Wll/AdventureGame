@@ -7,14 +7,6 @@
 
 using namespace std;
 
-Player::Player(string iname) {
-	name = iname;
-}
-
-string Player::getName() {
-	return name;
-}
-
 void Player::showPlayersParty() {
 	cout << greenColour << "\nYour party:" << defaultColour;
 	party.monsterPartyInfo();
